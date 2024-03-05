@@ -1,11 +1,11 @@
 {% extends "base.njk" %}
 
 {% block title %}
-    Epreuve
+    Sport
 {% endblock %}
 
 {% block body %}
-    <h1>Epreuve</h1>
+    <h1>Sports</h1>
     {% for epreuve in epreuves %}
         <a href="/epreuve/{{ epreuve.id_epreuve }}"><p>{{ epreuve.Nom }}</p></a>
     {% else %}
