@@ -6,4 +6,9 @@
 
 {% block body %}
     <h1>Sports</h1>
+    {% for sport in sports %}
+        <a href="/sport/{{ sport.id_sport }}"><p>{{ sport.Nom }}</p></a>
+    {% else %}
+        <p>Aucun sport enregistré</p>
+    {% endfor %}
 {% endblock %}
