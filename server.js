@@ -16,8 +16,6 @@ nunjucks.configure('views', {
     express: app
 });
 
-router.use(app_router)
-
 const server = http.createServer(app);
 
 export default server;
