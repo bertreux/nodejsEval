@@ -1,7 +1,7 @@
 import express from "express";
 import nunjucks from "nunjucks"
 import http from 'node:http';
-import app_router from "./router/app_router.js";
+import home_router from "./router/home_router.js";
 
 const app = express();
 const router = express.Router();
@@ -15,6 +15,8 @@ nunjucks.configure('views', {
     noCache: true,
     express: app
 });
+
+app.use(home_router);
 
 const server = http.createServer(app);
 
