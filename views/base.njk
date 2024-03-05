@@ -44,6 +44,24 @@
                     <a href="/resultats" class="nav-link d-flex p-2">Résultats tokyo 2020</a>
                 </li>
             </ul>
+            {% if true %}
+                <ul class="navbar-nav ms-auhref">
+                    <li class="navbar-item ">
+                        <a href="/connexion" class="nav-link d-flex p-2">Connexion</a>
+                    </li>
+                </ul>
+            {% else %}
+                <ul class="navbar-nav ms-auhref">
+                    <li class="navbar-item ">
+                        <a href="/gestion" class="nav-link d-flex p-2">Gestion</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auhref">
+                    <li class="navbar-item ">
+                        <a href="/deconnexion" class="nav-link d-flex p-2">Déconnexion</a>
+                    </li>
+                </ul>
+            {% endif %}
         </nav>
     </div>
     <div class="container">
