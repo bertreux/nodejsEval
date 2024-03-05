@@ -4,6 +4,7 @@ import http from 'node:http';
 import home_router from "./router/home_router.js";
 import sport_router from "./router/sport_router.js";
 import connexion_router from "./router/connexion_router.js";
+import epreuve_router from "./router/epreuve_router.js";
 
 const app = express();
 const router = express.Router();
@@ -21,6 +22,7 @@ nunjucks.configure('views', {
 app.use(home_router);
 app.use(sport_router);
 app.use(connexion_router);
+app.use(epreuve_router);
 
 const server = http.createServer(app);
 
