@@ -11,7 +11,7 @@ const showOfPaysBack = async (req, res) => {
     const { id } = { ...req.params };
     const pays = await get_one_pays_by_id(id);
     return res.render('back/pays/show.njk', {
-        'pays': pays,
+        'pays': pays[0],
     })
 }
 
@@ -19,15 +19,17 @@ const editOfPaysBack = async (req, res) => {
     const { id } = { ...req.params };
     const pays = await get_one_pays_by_id(id);
     return res.render('back/pays/form.njk', {
-        'pays': pays,
-        'title': 'Pays modif'
+        'pays': pays[0],
+        'title': 'Pays modif',
+        'type_url_api': pays[0].id_pays+'/edit/'
     })
 }
 
 const newOfPaysBack = (req, res) => {
     return res.render('back/pays/form.njk', {
         'pays': null,
-        'title': 'Pays creation'
+        'title': 'Pays creation',
+        'type_url_api': 'new/'
     })
 }
 

@@ -18,7 +18,7 @@ const showOfTitreBack = async (req, res) => {
     const { id } = { ...req.params };
     const titre = await get_one_titre_by_id(id);
     return res.render('back/titre/show.njk', {
-        'titre': titre,
+        'titre': titre[0],
     })
 }
 
@@ -29,11 +29,12 @@ const editOfTitreBack = async (req, res) => {
     const epreuves = await get_all_epreuves();
     const medailles = await get_all_medailles();
     return res.render('back/titre/form.njk', {
-        'titre': titre,
+        'titre': titre[0],
         'athletes': athletes,
         'epreuves': epreuves,
         'medailles': medailles,
-        'title': 'Titre modif'
+        'title': 'Titre modif',
+        'type_url_api': titre[0].id_participation+'/edit/'
     })
 }
 
@@ -46,7 +47,8 @@ const newOfTitreBack = async (req, res) => {
         'athletes': athletes,
         'epreuves': epreuves,
         'medailles': medailles,
-        'title': 'Titre creation'
+        'title': 'Titre creation',
+        'type_url_api': 'new/'
     })
 }
 

@@ -1,8 +1,13 @@
 {% extends 'back.njk' %}
 
+{% block javascript %}
+<script src="/js/form/athlete/form_epreuve.js" type="module" defer></script>
+{% endblock %}
+
 {% block title %}{{ title }}{% endblock %}
 
 {% block bodyback %}
+    <input type="hidden" id="type_url_api" value="{{ type_url_api }}">
     <h1>{{ title }}</h1>
     <form>
         <div class="form-group">

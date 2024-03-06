@@ -20,7 +20,7 @@ const showOfEpreuveBack = async (req, res) => {
     const { id } = { ...req.params };
     const epreuve = await get_one_epreuve_by_id(id);
     return res.render('back/epreuve/show.njk', {
-        'epreuve': epreuve,
+        'epreuve': epreuve[0],
     })
 }
 
@@ -30,10 +30,11 @@ const editOfEpreuveBack = async (req, res) => {
     const sports = await get_all_sports();
     const athletes = await get_all_athletes();
     return res.render('back/epreuve/form.njk', {
-        'epreuve': epreuve,
+        'epreuve': epreuve[0],
         'sports': sports,
         'athletes': athletes,
-        'title': 'Epreuve modif'
+        'title': 'Epreuve modif',
+        'type_url_api': epreuve[0].id_epreuve+'/edit/'
     })
 }
 
@@ -44,7 +45,8 @@ const newOfEpreuveBack = async (req, res) => {
         'epreuve': null,
         'sports': sports,
         'athletes': athletes,
-        'title': 'Epreuve creation'
+        'title': 'Epreuve creation',
+        'type_url_api': 'new/'
     })
 }
 

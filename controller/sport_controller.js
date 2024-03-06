@@ -27,7 +27,7 @@ const showOfSportBack = async (req, res) => {
     const { id } = { ...req.params };
     const sport = await get_one_sport_by_id(id);
     return res.render('back/sport/show.njk', {
-        'sport': sport,
+        'sport': sport[0],
     })
 }
 
@@ -35,15 +35,17 @@ const editOfSportBack = async (req, res) => {
     const { id } = { ...req.params };
     const sport = await get_one_sport_by_id(id);
     return res.render('back/sport/form.njk', {
-        'sport': sport,
-        'title': 'Sport modif'
+        'sport': sport[0],
+        'title': 'Sport modif',
+        'type_url_api': sport[0].id_sport+'/edit/'
     })
 }
 
 const newOfSportBack = (req, res) => {
     return res.render('back/sport/form.njk', {
         'sport': null,
-        'title': 'Sport creation'
+        'title': 'Sport creation',
+        'type_url_api': 'new/'
     })
 }
 
