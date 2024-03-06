@@ -1,4 +1,6 @@
 import {get_all_epreuves, get_one_epreuve_by_id} from "../repositories/epreuve_repository.js";
+import {get_all_sports} from "../repositories/sport_repository.js";
+import {get_all_athletes} from "../repositories/athlete_repository.js";
 
 const getAllEpreuve = async (req, res) => {
     const epreuves = await get_all_epreuves();
@@ -25,15 +27,23 @@ const showOfEpreuveBack = async (req, res) => {
 const editOfEpreuveBack = async (req, res) => {
     const { id } = { ...req.params };
     const epreuve = await get_one_epreuve_by_id(id);
+    const sports = await get_all_sports();
+    const athletes = await get_all_athletes();
     return res.render('back/epreuve/form.njk', {
         'epreuve': epreuve,
+        'sports': sports,
+        'athletes': athletes,
         'title': 'Epreuve modif'
     })
 }
 
-const newOfEpreuveBack = (req, res) => {
+const newOfEpreuveBack = async (req, res) => {
+    const sports = await get_all_sports();
+    const athletes = await get_all_athletes();
     return res.render('back/epreuve/form.njk', {
         'epreuve': null,
+        'sports': sports,
+        'athletes': athletes,
         'title': 'Epreuve creation'
     })
 }
