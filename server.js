@@ -11,8 +11,8 @@ const app = express();
 const router = express.Router();
 
 app.use(router);
-app.use(express.json());
-app.use(express.static("public"));
+router.use(express.json());
+router.use(express.static("public"));
 
 nunjucks.configure('views', {
     autoescape: true,
@@ -20,11 +20,11 @@ nunjucks.configure('views', {
     express: app
 });
 
-app.use(home_router);
-app.use(sport_router);
-app.use(connexion_router);
-app.use(epreuve_router);
-app.use(titre_router);
+router.use(home_router);
+router.use(sport_router);
+router.use(connexion_router);
+router.use(epreuve_router);
+router.use(titre_router);
 
 const server = http.createServer(app);
 
