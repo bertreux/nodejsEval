@@ -1,0 +1,22 @@
+{% extends 'back.njk' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block bodyback %}
+    <h1>{{ title }}</h1>
+    <form>
+        <div class="form-group">
+            <label for="nom">Nom :</label>
+            <input type="text" class="form-control" id="Nom" placeholder="Nom" name="Nom">
+        </div>
+        <div class="form-group">
+            <label for="prenom">sport_id :</label>
+            <input type="text" class="form-control" id="sport_id" placeholder="sport_id" name="sport_id">
+        </div>
+        <div class="form-group">
+            <label for="prenom">athlete_id :</label>
+            <input type="text" class="form-control" id="athlete_id" placeholder="athlete_id" name="athlete_id">
+        </div>
+        <button type="submit" class="btn btn-primary mt-2">Submit</button>
+    </form>
+{% endblock %}
