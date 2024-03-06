@@ -7,4 +7,11 @@ const getAllEpreuve = async (req, res) => {
     });
 }
 
-export { getAllEpreuve };
+const tableauOfEpreuveBack = async (req, res) => {
+    const epreuves = await get_all_epreuves();
+    return res.render('back/epreuve/index.njk', {
+        'epreuves': epreuves,
+    });
+}
+
+export { getAllEpreuve, tableauOfEpreuveBack };

@@ -16,4 +16,11 @@ const EpreuveOfSport = async (req, res) => {
     });
 }
 
-export { getAllSports, EpreuveOfSport };
+const tableauOfSportBack = async (req, res) => {
+    const sports = await get_all_sports();
+    return res.render('back/sport/index.njk', {
+        'sports': sports,
+    });
+}
+
+export { getAllSports, EpreuveOfSport, tableauOfSportBack };
