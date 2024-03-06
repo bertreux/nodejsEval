@@ -15,4 +15,20 @@ const showOfPaysBack = async (req, res) => {
     })
 }
 
-export { tableauOfEpreuveBack, showOfPaysBack };
+const editOfPaysBack = async (req, res) => {
+    const { id } = { ...req.params };
+    const pays = await get_one_pays_by_id(id);
+    return res.render('back/pays/form.njk', {
+        'pays': pays,
+        'title': 'Pays modif'
+    })
+}
+
+const newOfPaysBack = (req, res) => {
+    return res.render('back/pays/form.njk', {
+        'pays': null,
+        'title': 'Pays creation'
+    })
+}
+
+export { tableauOfEpreuveBack, showOfPaysBack, editOfPaysBack, newOfPaysBack };
