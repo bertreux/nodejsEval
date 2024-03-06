@@ -33,79 +33,19 @@ USE jeux_olympiques;
 --
 
 CREATE TABLE `athlete` (
-  `id_athlete` int(3) NOT NULL,
+  `id_athlete` TINYINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
   `nom` varchar(255) NOT NULL,
   `prenom` varchar(255) NOT NULL,
   `age` int(3) NOT NULL,
-  `sexe` binary(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `sexe` varchar(1) NOT NULL
+);
 
 --
 -- Déchargement des données de la table `athlete`
 --
 
 INSERT INTO `athlete` (`id_athlete`, `nom`, `prenom`, `age`, `sexe`) VALUES
-(1, 'Doe', 'John', 25, 0x01);
-
--- --------------------------------------------------------
-
---
--- Structure de la table `epreuve`
---
-
-CREATE TABLE `epreuve` (
-  `id_epreuve` int(3) NOT NULL,
-  `Nom` varchar(255) NOT NULL,
-  `sport_id` int(3) NOT NULL,
-  `athlete_id` int(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Déchargement des données de la table `epreuve`
---
-
-INSERT INTO `epreuve` (`id_epreuve`, `Nom`, `sport_id`, `athlete_id`) VALUES
-(1, 'Course 500 mètres', 1, 1);
-
--- --------------------------------------------------------
-
---
--- Structure de la table `medaille`
---
-
-CREATE TABLE `medaille` (
-  `id_medaille` int(3) NOT NULL,
-  `couleur` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Déchargement des données de la table `medaille`
---
-
-INSERT INTO `medaille` (`id_medaille`, `couleur`) VALUES
-(1, 'Bronze'),
-(2, 'Argent'),
-(3, 'Or');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `participation`
---
-
-CREATE TABLE `participation` (
-  `id_participation` int(3) NOT NULL,
-  `athlete_id` int(3) NOT NULL,
-  `epreuve_id` int(3) NOT NULL,
-  `medaille_id` int(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Déchargement des données de la table `participation`
---
-
-INSERT INTO `participation` (`id_participation`, `athlete_id`, `epreuve_id`, `medaille_id`) VALUES
-(1, 1, 1, 3);
+(NULL, 'Doe', 'John', 25, 'H');
 
 -- --------------------------------------------------------
 
@@ -114,75 +54,80 @@ INSERT INTO `participation` (`id_participation`, `athlete_id`, `epreuve_id`, `me
 --
 
 CREATE TABLE `sport` (
-  `id_sport` int(3) NOT NULL,
-  `Nom` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+ `id_sport` TINYINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+ `Nom` varchar(255) NOT NULL
+);
 
 --
 -- Déchargement des données de la table `sport`
 --
 
 INSERT INTO `sport` (`id_sport`, `Nom`) VALUES
-(1, 'Athletisme');
+    (NULL, 'Athletisme');
 
 --
--- Index pour les tables déchargées
+-- Structure de la table `epreuve`
 --
 
---
--- Index pour la table `athlete`
---
-ALTER TABLE `athlete`
-  ADD PRIMARY KEY (`id_athlete`);
+CREATE TABLE `epreuve` (
+   `id_epreuve` TINYINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+   `Nom` varchar(255) NOT NULL,
+   `sport_id` TINYINT UNSIGNED NOT NULL,
+   `athlete_id` TINYINT UNSIGNED NOT NULL,
+   FOREIGN KEY (sport_id) REFERENCES sport(id_sport),
+   FOREIGN KEY (athlete_id) REFERENCES athlete(id_athlete)
+);
 
 --
--- Index pour la table `epreuve`
---
-ALTER TABLE `epreuve`
-  ADD PRIMARY KEY (`id_epreuve`),
-  ADD KEY `FK1` (`sport_id`),
-  ADD KEY `FK2` (`athlete_id`);
-
---
--- Index pour la table `medaille`
---
-ALTER TABLE `medaille`
-  ADD PRIMARY KEY (`id_medaille`);
-
---
--- Index pour la table `participation`
---
-ALTER TABLE `participation`
-  ADD PRIMARY KEY (`id_participation`),
-  ADD KEY `FK4` (`athlete_id`),
-  ADD KEY `FK6` (`medaille_id`),
-  ADD KEY `FK8` (`epreuve_id`);
-
---
--- Index pour la table `sport`
---
-ALTER TABLE `sport`
-  ADD PRIMARY KEY (`id_sport`);
-
---
--- Contraintes pour les tables déchargées
+-- Déchargement des données de la table `epreuve`
 --
 
---
--- Contraintes pour la table `epreuve`
---
-ALTER TABLE `epreuve`
-  ADD CONSTRAINT `FK1` FOREIGN KEY (`sport_id`) REFERENCES `sport` (`id_sport`),
-  ADD CONSTRAINT `FK2` FOREIGN KEY (`athlete_id`) REFERENCES `athlete` (`id_athlete`);
+INSERT INTO `epreuve` (`id_epreuve`, `Nom`, `sport_id`, `athlete_id`) VALUES
+(NULL, 'Course 500 mètres', 1, 1);
+
+-- --------------------------------------------------------
 
 --
--- Contraintes pour la table `participation`
+-- Structure de la table `medaille`
 --
-ALTER TABLE `participation`
-  ADD CONSTRAINT `FK3` FOREIGN KEY (`athlete_id`) REFERENCES `athlete` (`id_athlete`),
-  ADD CONSTRAINT `FK4` FOREIGN KEY (`athlete_id`) REFERENCES `athlete` (`id_athlete`),
-  ADD CONSTRAINT `FK6` FOREIGN KEY (`medaille_id`) REFERENCES `medaille` (`id_medaille`),
-  ADD CONSTRAINT `FK8` FOREIGN KEY (`epreuve_id`) REFERENCES `epreuve` (`id_epreuve`);
+
+CREATE TABLE `medaille` (
+  `id_medaille` TINYINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+  `couleur` varchar(255) NOT NULL
+);
+
+--
+-- Déchargement des données de la table `medaille`
+--
+
+INSERT INTO `medaille` (`id_medaille`, `couleur`) VALUES
+(NULL, 'Bronze'),
+(NULL, 'Argent'),
+(NULL, 'Or');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `participation`
+--
+
+CREATE TABLE `participation` (
+  `id_participation` TINYINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+  `athlete_id` TINYINT UNSIGNED NOT NULL,
+  `epreuve_id` TINYINT UNSIGNED NOT NULL,
+  `medaille_id` TINYINT UNSIGNED NOT NULL,
+  FOREIGN KEY (athlete_id) REFERENCES athlete(id_athlete),
+  FOREIGN KEY (epreuve_id) REFERENCES epreuve(id_epreuve),
+  FOREIGN KEY (medaille_id) REFERENCES medaille(id_medaille)
+);
+
+--
+-- Déchargement des données de la table `participation`
+--
+
+INSERT INTO `participation` (`id_participation`, `athlete_id`, `epreuve_id`, `medaille_id`) VALUES
+(NULL, 1, 1, 3);
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

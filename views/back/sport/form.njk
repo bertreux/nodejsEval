@@ -1,13 +1,18 @@
 {% extends 'back.njk' %}
 
+{% block javascript %}
+<script src="/js/form/athlete/form_sport.js" type="module" defer></script>
+{% endblock %}
+
 {% block title %}{{ title }}{% endblock %}
 
 {% block bodyback %}
+    <input type="hidden" id="type_url_api" value="{{ type_url_api }}">
     <h1>{{ title }}</h1>
     <form>
         <div class="form-group">
             <label for="nom">Nom :</label>
-            <input type="text" class="form-control" id="Nom" placeholder="Nom" name="Nom">
+            <input type="text" class="form-control" id="Nom" placeholder="Nom" name="Nom" value="{{ sport.Nom }}">
         </div>
         <button type="submit" class="btn btn-primary mt-2">Submit</button>
     </form>

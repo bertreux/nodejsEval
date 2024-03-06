@@ -17,7 +17,7 @@ const get_one_sport_by_id = async (id) => {
             {
                 id: id,
             })
-        return results[0];
+        return results;
     } catch (error) {
         return error;
     }
