@@ -6,16 +6,28 @@
     <h1>{{ title }}</h1>
     <form>
         <div class="form-group">
-            <label for="nom">athlete_id :</label>
-            <input type="text" class="form-control" id="athlete_id" placeholder="athlete_id" name="athlete_id">
+            <label for="sexe">athlete_id :</label>
+            <select class="form-control" id="athlete_id" name="athlete_id">
+                {% for athlete in athletes %}
+                    <option {% if titre.athlete_id == athlete.id_athlete %}selected="selected"{% endif %}>{{ athlete.id_athlete }} - {{ athlete.nom }}</option>
+                {% endfor %}
+            </select>
         </div>
         <div class="form-group">
-            <label for="prenom">epreuve_id :</label>
-            <input type="text" class="form-control" id="epreuve_id" placeholder="epreuve_id" name="epreuve_id">
+            <label for="sexe">epreuve_id :</label>
+            <select class="form-control" id="epreuve_id" name="epreuve_id">
+                {% for epreuve in epreuves %}
+                    <option {% if titre.epreuve_id == epreuve.id_epreuve %}selected="selected"{% endif %}>{{ epreuve.id_epreuve }} - {{ epreuve.Nom }}</option>
+                {% endfor %}
+            </select>
         </div>
         <div class="form-group">
-            <label for="prenom">medaille_id :</label>
-            <input type="number" class="form-control" id="medaille_id" placeholder="medaille_id" name="medaille_id">
+            <label for="sexe">medaille_id :</label>
+            <select class="form-control" id="medaille_id" name="medaille_id">
+                {% for medaille in medailles %}
+                    <option {% if titre.medaille_id == medaille.id_medaille %}selected="selected"{% endif %}>{{ medaille.id_medaille }} - {{ medaille.couleur }}</option>
+                {% endfor %}
+            </select>
         </div>
         <button type="submit" class="btn btn-primary mt-2">Submit</button>
     </form>
