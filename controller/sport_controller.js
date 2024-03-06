@@ -31,4 +31,20 @@ const showOfSportBack = async (req, res) => {
     })
 }
 
-export { getAllSports, EpreuveOfSport, tableauOfSportBack, showOfSportBack };
+const editOfSportBack = async (req, res) => {
+    const { id } = { ...req.params };
+    const sport = await get_one_sport_by_id(id);
+    return res.render('back/sport/form.njk', {
+        'sport': sport,
+        'title': 'Sport modif'
+    })
+}
+
+const newOfSportBack = (req, res) => {
+    return res.render('back/sport/form.njk', {
+        'sport': null,
+        'title': 'Sport creation'
+    })
+}
+
+export { getAllSports, EpreuveOfSport, tableauOfSportBack, showOfSportBack, editOfSportBack, newOfSportBack };
