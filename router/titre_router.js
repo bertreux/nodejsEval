@@ -10,4 +10,10 @@ titre_router.get('/gestion/titres/', tableauOfTitreBack);
 
 epreuve_router.get('/gestion/titre/:id/show', showOfTitreBack);
 
+epreuve_router.get('/gestion/titre/:id/edit', editOfTitreBack);
+epreuve_router.post('/gestion/titre/:id/edit', insertDataEditOfTitreBack);
+
+epreuve_router.get('/gestion/titre/:id/new', newOfTitreBack);
+epreuve_router.post('/gestion/titre/:id/new', insertDataNewOfTitreBack);
+
 export default titre_router;
