@@ -1,6 +1,7 @@
 import express from "express";
 import nunjucks from "nunjucks"
 import http from 'node:http';
+import session from 'express-session';
 import home_router from "./router/home_router.js";
 import sport_router from "./router/sport_router.js";
 import connexion_router from "./router/connexion_router.js";
@@ -9,6 +10,12 @@ import titre_router from "./router/titre_router.js";
 
 const app = express();
 const router = express.Router();
+
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true
+}))
 
 app.use(router);
 router.use(express.json());
