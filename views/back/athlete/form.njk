@@ -7,21 +7,21 @@
     <form>
         <div class="form-group">
             <label for="nom">nom :</label>
-            <input type="text" class="form-control" id="nom" placeholder="nom" name="nom">
+            <input type="text" class="form-control" id="nom" placeholder="nom" name="nom" value="{{ athlete.nom }}">
         </div>
         <div class="form-group">
             <label for="prenom">prenom :</label>
-            <input type="text" class="form-control" id="prenom" placeholder="prenom" name="prenom">
+            <input type="text" class="form-control" id="prenom" placeholder="prenom" name="prenom" value="{{ athlete.prenom }}">
         </div>
         <div class="form-group">
             <label for="prenom">age :</label>
-            <input type="number" class="form-control" id="age" placeholder="age" name="age">
+            <input type="number" class="form-control" id="age" placeholder="age" name="age" value="{{ athlete.age }}">
         </div>
         <div class="form-group">
             <label for="sexe">sexe</label>
             <select class="form-control" id="sexe" name="sexe">
-                <option>H</option>
-                <option>F</option>
+                <option {% if athlete.sexe == 'H' %}selected="selected"{% endif %}>H</option>
+                <option {% if athlete.sexe == 'F' %}selected="selected"{% endif %}>F</option>
             </select>
         </div>
         <button type="submit" class="btn btn-primary mt-2">Submit</button>
