@@ -6,4 +6,6 @@ const config = {
     prod: {
         api_url: null
     }
-}
+};
+
+export default config;
