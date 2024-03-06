@@ -12,4 +12,10 @@ sport_router.get('/gestion/sports/', tableauOfSportBack);
 
 epreuve_router.get('/gestion/sport/:id/show', showOfSportBack);
 
+epreuve_router.get('/gestion/sport/:id/edit', editOfSportBack);
+epreuve_router.post('/gestion/sport/:id/edit', insertDataEditOfSportBack);
+
+epreuve_router.get('/gestion/sport/:id/new', newOfSportBack);
+epreuve_router.post('/gestion/sport/:id/new', insertDataNewOfSportBack);
+
 export default sport_router;

@@ -9,4 +9,10 @@ epreuve_router.get('/gestion/epreuves/', tableauOfEpreuveBack);
 
 epreuve_router.get('/gestion/epreuve/:id/show', showOfEpreuveBack);
 
+epreuve_router.get('/gestion/epreuve/:id/edit', editOfEpreuveBack);
+epreuve_router.post('/gestion/epreuve/:id/edit', insertDataEditOfEpreuveBack);
+
+epreuve_router.get('/gestion/epreuve/:id/new', newOfEpreuveBack);
+epreuve_router.post('/gestion/epreuve/:id/new', insertDataNewOfEpreuveBack);
+
 export default epreuve_router;
