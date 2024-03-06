@@ -19,14 +19,14 @@
                 <td>{{ pay.id_pays }}</td>
                 <td>{{ pay.Nom }}</td>
                 <td>
-                    <a href="/gestion/sport/{{ pay.id_pays }}/show" class="btn btn-info">Voire</a>
-                    <a href="/gestion/sport/{{ pay.id_pays }}/edit" class="btn btn-warning">Modifier</a>
-                    <a href="/gestion/sport/{{ pay.id_pays }}/sup" class="btn btn-danger">Supprimer</a>
+                    <a href="/gestion/pays/{{ pay.id_pays }}/show" class="btn btn-info">Voire</a>
+                    <a href="/gestion/pays/{{ pay.id_pays }}/edit" class="btn btn-warning">Modifier</a>
+                    <a href="/gestion/pays/{{ pay.id_pays }}/sup" class="btn btn-danger">Supprimer</a>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <button class="btn btn-success">Créer</button>
+    <a href="/gestion/pays/new" class="btn btn-success">Créer</a>
 {% endblock %}
