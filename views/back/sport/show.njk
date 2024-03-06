@@ -1,0 +1,24 @@
+{% extends 'back.njk' %}
+
+{% block title %}Sport index{% endblock %}
+
+{% block bodyback %}
+    <h1>Sport index</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>id_sport :</th>
+            <td>{{ sport.id_sport }}</td>
+        </tr>
+        <tr>
+            <th>Nom :</th>
+            <td>{{ sport.Nom }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a href="/gestion/sport/{{ sport.id_sport }}/edit" class="btn btn-warning">Modifier</a>
+    <a href="/gestion/sport/{{ sport.id_sport }}/sup" class="btn btn-danger">Supprimer</a>
+
+{% endblock %}

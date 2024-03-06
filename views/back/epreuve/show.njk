@@ -1,0 +1,32 @@
+{% extends 'back.njk' %}
+
+{% block title %}Epreuve index{% endblock %}
+
+{% block bodyback %}
+    <h1>Epreuve index</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>id_epreuve :</th>
+            <td>{{ epreuve.id_epreuve }}</td>
+        </tr>
+        <tr>
+            <th>Nom :</th>
+            <td>{{ epreuve.Nom }}</td>
+        </tr>
+        <tr>
+            <th>sport_id :</th>
+            <td>{{ epreuve.sport_id }}</td>
+        </tr>
+        <tr>
+            <th>athlete_id :</th>
+            <td>{{ epreuve.athlete_id }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a href="/gestion/epreuve/{{ epreuve.id_epreuve }}/edit" class="btn btn-warning">Modifier</a>
+    <a href="/gestion/epreuve/{{ epreuve.id_epreuve }}/sup" class="btn btn-danger">Supprimer</a>
+
+{% endblock %}

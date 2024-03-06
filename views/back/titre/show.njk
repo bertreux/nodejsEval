@@ -1,0 +1,32 @@
+{% extends 'back.njk' %}
+
+{% block title %}Titre index{% endblock %}
+
+{% block bodyback %}
+    <h1>Titre index</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>id_participation :</th>
+            <td>{{ titre.id_participation }}</td>
+        </tr>
+        <tr>
+            <th>athlete_id :</th>
+            <td>{{ titre.athlete_id }}</td>
+        </tr>
+        <tr>
+            <th>epreuve_id :</th>
+            <td>{{ titre.epreuve_id }}</td>
+        </tr>
+        <tr>
+            <th>medaille_id :</th>
+            <td>{{ titre.medaille_id }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a href="/gestion/titre/{{ titre.id_participation }}/edit" class="btn btn-warning">Modifier</a>
+    <a href="/gestion/titre/{{ titre.id_participation }}/sup" class="btn btn-danger">Supprimer</a>
+
+{% endblock %}

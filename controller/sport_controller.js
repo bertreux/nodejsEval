@@ -1,4 +1,4 @@
-import {get_all_sports} from "../repositories/sport_repository.js";
+import {get_all_sports, get_one_sport_by_id} from "../repositories/sport_repository.js";
 import {get_epreuve_by_sport_id} from "../repositories/epreuve_repository.js";
 
 const getAllSports = async (req, res) => {
@@ -23,4 +23,12 @@ const tableauOfSportBack = async (req, res) => {
     });
 }
 
-export { getAllSports, EpreuveOfSport, tableauOfSportBack };
+const showOfSportBack = async (req, res) => {
+    const { id } = { ...req.params };
+    const sport = await get_one_sport_by_id(id);
+    return res.render('back/sport/show.njk', {
+        'sport': sport,
+    })
+}
+
+export { getAllSports, EpreuveOfSport, tableauOfSportBack, showOfSportBack };
