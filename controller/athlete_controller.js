@@ -1,4 +1,4 @@
-import {get_all_athletes} from "../repositories/athlete_repository.js";
+import {get_all_athletes, get_one_athlete_by_id} from "../repositories/athlete_repository.js";
 
 const tableauOfAthleteBack = async (req, res) => {
     const athletes = await get_all_athletes();
@@ -7,4 +7,12 @@ const tableauOfAthleteBack = async (req, res) => {
     })
 }
 
-export {tableauOfAthleteBack};
+const showOfAthleteBack = async (req, res) => {
+    const { id } = { ...req.params };
+    const athlete = await get_one_athlete_by_id(id);
+    return res.render('back/athlete/show.njk', {
+        'athlete': athlete,
+    })
+}
+
+export {tableauOfAthleteBack, showOfAthleteBack};

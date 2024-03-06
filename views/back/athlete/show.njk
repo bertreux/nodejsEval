@@ -1,0 +1,36 @@
+{% extends 'back.njk' %}
+
+{% block title %}Athlete index{% endblock %}
+
+{% block bodyback %}
+    <h1>Athlete index</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>id_athlete :</th>
+            <td>{{ athlete.id_athlete }}</td>
+        </tr>
+        <tr>
+            <th>nom :</th>
+            <td>{{ athlete.nom }}</td>
+        </tr>
+        <tr>
+            <th>prenom :</th>
+            <td>{{ athlete.prenom }}</td>
+        </tr>
+        <tr>
+            <th>age :</th>
+            <td>{{ athlete.age }}</td>
+        </tr>
+        <tr>
+            <th>sexe :</th>
+            <td>{{ athlete.sexe }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a href="/gestion/athlete/{{ athlete.id_athlete }}/edit" class="btn btn-warning">Modifier</a>
+    <a href="/gestion/athlete/{{ athlete.id_athlete }}/sup" class="btn btn-danger">Supprimer</a>
+
+{% endblock %}
