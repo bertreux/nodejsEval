@@ -1,0 +1,32 @@
+{% extends 'back.njk' %}
+
+{% block title %}Sport index{% endblock %}
+
+{% block bodyback %}
+    <h1>Sport index</h1>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>id_sport</th>
+            <th>Nom</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for sport in sports %}
+            <tr>
+                <td>{{ sport.id_sport }}</td>
+                <td>{{ sport.Nom }}</td>
+                <td>
+                    <a href="/gestion/sport/{{ sport.id_sport }}/show" class="btn btn-info">Voire</a>
+                    <a href="/gestion/sport/{{ sport.id_sport }}/edit" class="btn btn-warning">Modifier</a>
+                    <a href="/gestion/sport/{{ sport.id_sport }}/sup" class="btn btn-danger">Supprimer</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <button class="btn btn-success">Créer</button>
+{% endblock %}
