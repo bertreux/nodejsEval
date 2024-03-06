@@ -1,0 +1,32 @@
+{% extends 'back.njk' %}
+
+{% block title %}Pays index{% endblock %}
+
+{% block bodyback %}
+    <h1>Sport index</h1>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>id_pays</th>
+            <th>Nom</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for pay in pays %}
+            <tr>
+                <td>{{ pay.id_pays }}</td>
+                <td>{{ pay.Nom }}</td>
+                <td>
+                    <a href="/gestion/sport/{{ pay.id_pays }}/show" class="btn btn-info">Voire</a>
+                    <a href="/gestion/sport/{{ pay.id_pays }}/edit" class="btn btn-warning">Modifier</a>
+                    <a href="/gestion/sport/{{ pay.id_pays }}/sup" class="btn btn-danger">Supprimer</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <button class="btn btn-success">Créer</button>
+{% endblock %}
