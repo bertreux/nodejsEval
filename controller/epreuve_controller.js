@@ -12,6 +12,7 @@ const getAllEpreuve = async (req, res) => {
     const epreuves = await get_all_epreuves();
     return res.render('front/epreuve/liste_epreuve.njk', {
         'epreuves': epreuves,
+        'user': req.session.user
     });
 }
 
@@ -19,6 +20,7 @@ const tableauOfEpreuveBack = async (req, res) => {
     const epreuves = await get_all_epreuves();
     return res.render('back/epreuve/index.njk', {
         'epreuves': epreuves,
+        'user': req.session.user
     });
 }
 
@@ -28,6 +30,7 @@ const deleteOfEpreuveBack = async (req, res) => {
     const epreuves = await get_all_epreuves();
     return res.render('back/epreuve/index.njk', {
         'epreuves': epreuves,
+        'user': req.session.user
     });
 }
 
@@ -36,6 +39,7 @@ const showOfEpreuveBack = async (req, res) => {
     const epreuve = await get_one_epreuve_by_id(id);
     return res.render('back/epreuve/show.njk', {
         'epreuve': epreuve[0],
+        'user': req.session.user
     })
 }
 
@@ -49,17 +53,15 @@ const editOfEpreuveBack = async (req, res) => {
         'sports': sports,
         'athletes': athletes,
         'title': 'Epreuve modif',
-        'type_url_api': epreuve[0].id_epreuve+'/edit/'
+        'type_url_api': epreuve[0].id_epreuve+'/edit/',
+        'user': req.session.user
     })
 }
 
 const insertDataEditOfEpreuveBack = async (req, res) => {
     const { id } = { ...req.params };
-    console.log(id)
     const body = req.body;
-    console.log(body)
     const query = await update_epreuve_by_id(id, body);
-    console.log(query);
     if(query.errno){
     return res.status(400).json({
         status: 400,
@@ -80,7 +82,8 @@ const newOfEpreuveBack = async (req, res) => {
         'sports': sports,
         'athletes': athletes,
         'title': 'Epreuve creation',
-        'type_url_api': 'new/'
+        'type_url_api': 'new/',
+        'user': req.session.user
     })
 }
 

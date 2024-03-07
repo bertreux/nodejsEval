@@ -8,8 +8,16 @@ import epreuve_router from "./router/epreuve_router.js";
 import titre_router from "./router/titre_router.js";
 import athlete_router from "./router/athlete_router.js";
 import pays_router from "./router/pays_router.js";
+import session from "express-session";
 
 const app = express();
+
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true
+}))
+
 const router = express.Router();
 
 app.use(router);
