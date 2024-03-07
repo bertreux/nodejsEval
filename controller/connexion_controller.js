@@ -49,7 +49,7 @@ const login = (req, res) => {
         return res.status(301).json({
             status: 301,
             message: 'Redirect',
-            url: `${req.origin}/`
+            url: `/`
         });
     })
 }

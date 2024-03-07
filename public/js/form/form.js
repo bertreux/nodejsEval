@@ -23,7 +23,7 @@ const sendFormValueAndReturnResponse = (url, msg_status_201) =>{
             e.target.reset();
             return;
         }else if(response.status === 301){
-            location.href = '/';
+            location.href = response.url;
             return;
         }
         message.innerHTML = response.errors.join('<br>');
