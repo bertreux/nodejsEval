@@ -8,6 +8,6 @@ const sport_form_validator = joi.object({
         'string.min': 'Le nom du sport doit dépasser 5 caractères',
         'any.required': 'Le nom du sport est requis',
     }),
-});
+}).options({ convert: true, abortEarly: false, stripUnknown: true });
 
 export default sport_form_validator;

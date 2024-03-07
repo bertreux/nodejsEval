@@ -19,6 +19,6 @@ const titre_form_validator = joi.object({
         'number.positive': "L'identifiant de la médaille doit être positif",
         'any.required': "L'identifiant de la médaille est requis",
     }),
-});
+}).options({ convert: true, abortEarly: false, stripUnknown: true });
 
 export default titre_form_validator;

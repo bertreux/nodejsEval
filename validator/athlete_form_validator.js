@@ -32,6 +32,6 @@ const athlete_form_validator = joi.object({
         'number.positive': 'L\'identifiant du pays doit être positif',
         'any.required': 'L\'identifiant du pays est requis',
     }),
-});
+}).options({ convert: true, abortEarly: false, stripUnknown: true });
 
 export default athlete_form_validator;
