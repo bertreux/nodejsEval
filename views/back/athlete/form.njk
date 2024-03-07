@@ -30,6 +30,14 @@
                 <option {% if athlete.sexe == 'F' %}selected="selected"{% endif %}>F</option>
             </select>
         </div>
+        <div class="form-group">
+            <label for="sexe">sport_id :</label>
+            <select class="form-control" id="pays_id" name="pays_id">
+                {% for pay in pays %}
+                    <option {% if athlete.pays_id == pay.id_pays %}selected="selected"{% endif %} value="{{ pay.id_pays }}">{{ pay.id_pays }} - {{ pay.Nom }}</option>
+                {% endfor %}
+            </select>
+        </div>
         <button type="submit" class="btn btn-primary mt-2">Submit</button>
     </form>
 {% endblock %}

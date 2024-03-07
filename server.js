@@ -7,6 +7,7 @@ import connexion_router from "./router/connexion_router.js";
 import epreuve_router from "./router/epreuve_router.js";
 import titre_router from "./router/titre_router.js";
 import athlete_router from "./router/athlete_router.js";
+import pays_router from "./router/pays_router.js";
 
 const app = express();
 const router = express.Router();
@@ -27,6 +28,7 @@ app.use(connexion_router);
 app.use(epreuve_router);
 app.use(titre_router);
 app.use(athlete_router);
+app.use(pays_router);
 
 const server = http.createServer(app);
 
