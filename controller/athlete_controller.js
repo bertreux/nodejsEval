@@ -5,6 +5,7 @@ import {
     insert_new_athlete,
     update_athlete_by_id
 } from "../repositories/athlete_repository.js";
+import {get_all_pays} from "../repositories/pays_repository.js";
 
 const tableauOfAthleteBack = async (req, res) => {
     const athletes = await get_all_athletes();
@@ -33,8 +34,10 @@ const deleteOfAthleteBack = async (req, res) => {
 const editOfAthleteBack = async (req, res) => {
     const { id } = { ...req.params };
     const athlete = await get_one_athlete_by_id(id);
+    const pays = await get_all_pays();
     return res.render('back/athlete/form.njk', {
         'athlete': athlete[0],
+        'pays': pays,
         'title': 'Athlete modif',
         'type_url_api': athlete[0].id_athlete+'/edit/'
     })
@@ -56,9 +59,11 @@ const insertDataEditOfAthleteBack = async (req, res) => {
     });
 }
 
-const newOfAthleteBack = (req, res) => {
+const newOfAthleteBack = async (req, res) => {
+    const pays = await get_all_pays();
     return res.render('back/athlete/form.njk', {
         'athlete': null,
+        'pays': pays,
         'title': 'Athlete creation',
         'type_url_api': 'new/'
     })

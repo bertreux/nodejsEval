@@ -9,10 +9,10 @@
 {% block bodyback %}
     <input type="hidden" id="type_url_api" value="{{ type_url_api }}">
     <h1>{{ title }}</h1>
-    <p class="message"></p>
+    <div class="message" role="alert"></div>
     <form>
         <div class="form-group">
-            <label for="nom">Nom :</label>
+            <label for="Nom">Nom :</label>
             <input type="text" class="form-control" id="Nom" placeholder="Nom" name="Nom" value="{{ sport.Nom }}">
         </div>
         <button type="submit" class="btn btn-primary mt-2">Submit</button>

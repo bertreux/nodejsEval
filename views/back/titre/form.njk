@@ -9,9 +9,10 @@
 {% block bodyback %}
     <input type="hidden" id="type_url_api" value="{{ type_url_api }}">
     <h1>{{ title }}</h1>
+    <div class="message" role="alert"></div>
     <form>
         <div class="form-group">
-            <label for="sexe">athlete_id :</label>
+            <label for="athlete_id">athlete_id :</label>
             <select class="form-control" id="athlete_id" name="athlete_id">
                 {% for athlete in athletes %}
                     <option {% if titre.athlete_id == athlete.id_athlete %}selected="selected"{% endif %} value="{{ athlete.id_athlete }}">{{ athlete.id_athlete }} - {{ athlete.nom }}</option>
@@ -19,7 +20,7 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="sexe">epreuve_id :</label>
+            <label for="epreuve_id">epreuve_id :</label>
             <select class="form-control" id="epreuve_id" name="epreuve_id">
                 {% for epreuve in epreuves %}
                     <option {% if titre.epreuve_id == epreuve.id_epreuve %}selected="selected"{% endif %} value="{{ epreuve.id_epreuve }}">{{ epreuve.id_epreuve }} - {{ epreuve.Nom }}</option>
@@ -27,7 +28,7 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="sexe">medaille_id :</label>
+            <label for="medaille_id">medaille_id :</label>
             <select class="form-control" id="medaille_id" name="medaille_id">
                 {% for medaille in medailles %}
                     <option {% if titre.medaille_id == medaille.id_medaille %}selected="selected"{% endif %} value="{{ medaille.id_medaille }}">{{ medaille.id_medaille }} - {{ medaille.couleur }}</option>

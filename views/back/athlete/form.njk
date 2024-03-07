@@ -9,7 +9,7 @@
 {% block bodyback %}
     <input type="hidden" id="type_url_api" value="{{ type_url_api }}">
     <h1>{{ title }}</h1>
-    <p class="message"></p>
+    <div class="message" role="alert"></div>
     <form>
         <div class="form-group">
             <label for="nom">nom :</label>
@@ -31,7 +31,7 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="sexe">sport_id :</label>
+            <label for="pays_id">pays_id :</label>
             <select class="form-control" id="pays_id" name="pays_id">
                 {% for pay in pays %}
                     <option {% if athlete.pays_id == pay.id_pays %}selected="selected"{% endif %} value="{{ pay.id_pays }}">{{ pay.id_pays }} - {{ pay.Nom }}</option>

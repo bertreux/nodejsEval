@@ -5,11 +5,3 @@
 #menuBack{
     border-right: 1px solid black;
 }
-
-.message .created{
-    color: green;
-}
-
-.message .error{
-    color: red;
-}

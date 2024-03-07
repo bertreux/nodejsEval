@@ -9,13 +9,14 @@
 {% block bodyback %}
     <input type="hidden" id="type_url_api" value="{{ type_url_api }}">
     <h1>{{ title }}</h1>
+    <div class="message" role="alert"></div>
     <form>
         <div class="form-group">
-            <label for="nom">Nom :</label>
+            <label for="Nom">Nom :</label>
             <input type="text" class="form-control" id="Nom" placeholder="Nom" name="Nom" value="{{ epreuve.Nom }}">
         </div>
         <div class="form-group">
-            <label for="sexe">sport_id :</label>
+            <label for="sport_id">sport_id :</label>
             <select class="form-control" id="sport_id" name="sport_id">
                 {% for sport in sports %}
                     <option {% if epreuve.sport_id == sport.id_sport %}selected="selected"{% endif %} value="{{ sport.id_sport }}">{{ sport.id_sport }} - {{ sport.Nom }}</option>
