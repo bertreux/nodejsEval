@@ -72,6 +72,12 @@ CREATE TABLE `participation` (
   FOREIGN KEY (medaille_id) REFERENCES medaille(id_medaille)
 );
 
+CREATE TABLE `user` (
+ `id_user` TINYINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+ `email` varchar(255) UNIQUE NOT NULL,
+ `pwd` varchar(255) NOT NULL
+);
+
 INSERT INTO `pays` (`id_pays`, `Nom`) VALUES
 (NULL, 'France');
 
