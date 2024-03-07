@@ -5,9 +5,22 @@
 {% endblock %}
 
 {% block body %}
-    <h1>Epreuve</h1>
+    <h1>Listes des épreuves</h1>
+    <p>Cliquer sur une épreuve pour voir ses participants</p>
+    <hr>
     {% for epreuve in epreuves %}
-        <a href="/epreuve/{{ epreuve.id_epreuve }}"><p>{{ epreuve.Nom }}</p></a>
+        <a class="nav-link" href="/epreuve/{{ epreuve.id_epreuve }}">
+            <article class="col-4 mb-4" key={article.id}>
+                <div class="card">
+                    <h2 class="card-header">
+                        {{ epreuve.Nom }}
+                    </h2>
+                    {# <div class="card-body article_contenu">
+                        {article.contenu}
+                    </div> #}
+                </div>
+            </article>
+        </a>
     {% else %}
         <p>Aucune épreuve enregistré</p>
     {% endfor %}
