@@ -20,6 +20,6 @@ const epreuve_form_validator = joi.object({
         'number.positive': "L'identifiant de l'athlète doit être positif",
         'any.required': "L'identifiant de l'athlète est requis",
     }),
-});
+}).options({ convert: true, abortEarly: false, stripUnknown: true });
 
 export default epreuve_form_validator;

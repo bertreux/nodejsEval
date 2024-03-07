@@ -8,6 +8,6 @@ const pays_form_validator = joi.object({
         'string.min': "Le nom du pays doit dépasser 5 caractères",
         'any.required': "Le nom du pays est requis",
     }),
-});
+}).options({ convert: true, abortEarly: false, stripUnknown: true });
 
 export default pays_form_validator;
