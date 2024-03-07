@@ -1,0 +1,20 @@
+{% extends "base.njk" %}
+
+{% block title %}
+    Médailles
+{% endblock %}
+
+{% block body %}
+    <h1>Médailles</h1>
+    {% if athletes.length > 0 %}
+        <ul>
+            {% for athlete in athletes %}
+                {% if athlete.hasMedal %}
+                    <li><a href="/athletes/{{ athlete.id_athlete }}">{{ athlete.Nom }}</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Aucun athlète enregistré</p>
+    {% endif %}
+{% endblock %}
