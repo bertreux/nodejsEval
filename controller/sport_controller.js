@@ -83,7 +83,6 @@ const newOfSportBack = (req, res) => {
 const insertDataNewOfSportBack = async (req, res) => {
     const body = req.body;
     const query = await insert_new_sport(body);
-    console.log(query);
     if(query.errno){
         return res.status(400).json({
             status: 400,
