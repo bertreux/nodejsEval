@@ -18,7 +18,7 @@
             <label for="sexe">sport_id :</label>
             <select class="form-control" id="sport_id" name="sport_id">
                 {% for sport in sports %}
-                    <option {% if epreuve.sport_id == sport.id_sport %}selected="selected"{% endif %}>{{ sport.id_sport }} - {{ sport.Nom }}</option>
+                    <option {% if epreuve.sport_id == sport.id_sport %}selected="selected"{% endif %} value="{{ sport.id_sport }}">{{ sport.id_sport }} - {{ sport.Nom }}</option>
                 {% endfor %}
             </select>
         </div>
@@ -26,7 +26,7 @@
             <label for="sexe">athlete_id :</label>
             <select class="form-control" id="athlete_id" name="athlete_id">
                 {% for athlete in athletes %}
-                    <option {% if epreuve.athlete_id == athlete.id_athlete %}selected="selected"{% endif %}>{{ athlete.id_athlete }} - {{ athlete.nom }}</option>
+                    <option {% if epreuve.athlete_id == athlete.id_athlete %}selected="selected"{% endif %} value="{{ athlete.id_athlete }}">{{ athlete.id_athlete }} - {{ athlete.nom }}</option>
                 {% endfor %}
             </select>
         </div>
