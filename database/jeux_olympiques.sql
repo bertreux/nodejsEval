@@ -28,46 +28,25 @@ CREATE DATABASE jeux_olympiques;
 
 USE jeux_olympiques;
 
---
--- Structure de la table `athlete`
---
+CREATE TABLE `pays` (
+  `id_pays` TINYINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+  `Nom` varchar(255) NOT NULL
+);
 
 CREATE TABLE `athlete` (
   `id_athlete` TINYINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
   `nom` varchar(255) NOT NULL,
   `prenom` varchar(255) NOT NULL,
   `age` int(3) NOT NULL,
-  `sexe` varchar(1) NOT NULL
+  `sexe` varchar(1) NOT NULL,
+  `pays_id` TINYINT UNSIGNED NOT NULL,
+  FOREIGN KEY (pays_id) REFERENCES pays(id_pays)
 );
-
---
--- Déchargement des données de la table `athlete`
---
-
-INSERT INTO `athlete` (`id_athlete`, `nom`, `prenom`, `age`, `sexe`) VALUES
-(NULL, 'Doe', 'John', 25, 'H');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `sport`
---
 
 CREATE TABLE `sport` (
  `id_sport` TINYINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
  `Nom` varchar(255) NOT NULL
 );
-
---
--- Déchargement des données de la table `sport`
---
-
-INSERT INTO `sport` (`id_sport`, `Nom`) VALUES
-    (NULL, 'Athletisme');
-
---
--- Structure de la table `epreuve`
---
 
 CREATE TABLE `epreuve` (
    `id_epreuve` TINYINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
@@ -78,38 +57,10 @@ CREATE TABLE `epreuve` (
    FOREIGN KEY (athlete_id) REFERENCES athlete(id_athlete)
 );
 
---
--- Déchargement des données de la table `epreuve`
---
-
-INSERT INTO `epreuve` (`id_epreuve`, `Nom`, `sport_id`, `athlete_id`) VALUES
-(NULL, 'Course 500 mètres', 1, 1);
-
--- --------------------------------------------------------
-
---
--- Structure de la table `medaille`
---
-
 CREATE TABLE `medaille` (
   `id_medaille` TINYINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
   `couleur` varchar(255) NOT NULL
 );
-
---
--- Déchargement des données de la table `medaille`
---
-
-INSERT INTO `medaille` (`id_medaille`, `couleur`) VALUES
-(NULL, 'Bronze'),
-(NULL, 'Argent'),
-(NULL, 'Or');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `participation`
---
 
 CREATE TABLE `participation` (
   `id_participation` TINYINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
@@ -121,9 +72,22 @@ CREATE TABLE `participation` (
   FOREIGN KEY (medaille_id) REFERENCES medaille(id_medaille)
 );
 
---
--- Déchargement des données de la table `participation`
---
+INSERT INTO `pays` (`id_pays`, `Nom`) VALUES
+(NULL, 'France');
+
+INSERT INTO `athlete` (`id_athlete`, `nom`, `prenom`, `age`, `sexe`, `pays_id`) VALUES
+(NULL, 'Doe', 'John', 25, 'H', 1);
+
+INSERT INTO `medaille` (`id_medaille`, `couleur`) VALUES
+(NULL, 'Bronze'),
+(NULL, 'Argent'),
+(NULL, 'Or');
+
+INSERT INTO `sport` (`id_sport`, `Nom`) VALUES
+(NULL, 'Athletisme');
+
+INSERT INTO `epreuve` (`id_epreuve`, `Nom`, `sport_id`, `athlete_id`) VALUES
+(NULL, 'Course 500 mètres', 1, 1);
 
 INSERT INTO `participation` (`id_participation`, `athlete_id`, `epreuve_id`, `medaille_id`) VALUES
 (NULL, 1, 1, 3);
