@@ -1,7 +1,7 @@
 import epreuve_form_validator from "../../validator/epreuve_form_validator.js";
 
 const epreuve_form_middleware = (req, res, next) => {
-    const validate = epreuve_form_validator.validate(req, req.body, { abortEarly: false });
+    const validate = epreuve_form_validator.validate(req.body);
     if(validate.error){
         return res.status(400).json({
             status: 400,
