@@ -40,7 +40,7 @@
                     <a href="/site/" class="nav-link d-flex p-2">Site de compétitions</a>
                 </li>
             </ul>
-            {% if false %}
+            {% if user is null or user is undefined %}
                 <ul class="navbar-nav ms-auhref">
                     <li class="navbar-item ">
                         <a href="/connexion/" class="nav-link d-flex p-2">Connexion</a>
@@ -54,7 +54,7 @@
                 </ul>
                 <ul class="navbar-nav ms-auhref">
                     <li class="navbar-item ">
-                        <a href="/deconnexion/" class="nav-link d-flex p-2">Déconnexion</a>
+                        <a href="/logout/" class="nav-link d-flex p-2">Déconnexion</a>
                     </li>
                 </ul>
             {% endif %}

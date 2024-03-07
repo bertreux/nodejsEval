@@ -10,13 +10,16 @@ import {get_all_epreuves} from "../repositories/epreuve_repository.js";
 import {get_all_medailles} from "../repositories/medaille_repository.js";
 
 const getAllTitres = (req, res) => {
-    return res.render('front/titre/liste_titres.njk');
+    return res.render('front/titre/liste_titres.njk', {
+        'user': req.session.user
+    });
 }
 
 const tableauOfTitreBack = async (req, res) => {
     const titres = await get_all_participation();
     return res.render('back/titre/index.njk', {
-        'titres': titres
+        'titres': titres,
+        'user': req.session.user
     });
 }
 
@@ -25,6 +28,7 @@ const showOfTitreBack = async (req, res) => {
     const titre = await get_one_titre_by_id(id);
     return res.render('back/titre/show.njk', {
         'titre': titre[0],
+        'user': req.session.user
     })
 }
 
@@ -33,7 +37,8 @@ const deleteOfTitreBack = async (req, res) => {
     const query = await delete_titre_by_id(id);
     const titres = await get_all_participation();
     return res.render('back/titre/index.njk', {
-        'titres': titres
+        'titres': titres,
+        'user': req.session.user
     });
 }
 
@@ -49,7 +54,8 @@ const editOfTitreBack = async (req, res) => {
         'epreuves': epreuves,
         'medailles': medailles,
         'title': 'Titre modif',
-        'type_url_api': titre[0].id_participation+'/edit/'
+        'type_url_api': titre[0].id_participation+'/edit/',
+        'user': req.session.user
     })
 }
 
@@ -79,7 +85,8 @@ const newOfTitreBack = async (req, res) => {
         'epreuves': epreuves,
         'medailles': medailles,
         'title': 'Titre creation',
-        'type_url_api': 'new/'
+        'type_url_api': 'new/',
+        'user': req.session.user
     })
 }
 

@@ -10,6 +10,7 @@ const tableauOfPaysBack = async (req, res) => {
     const pays = await get_all_pays();
     return res.render('back/pays/index.njk', {
         'pays': pays,
+        'user': req.session.user
     });
 }
 
@@ -18,6 +19,7 @@ const showOfPaysBack = async (req, res) => {
     const pays = await get_one_pays_by_id(id);
     return res.render('back/pays/show.njk', {
         'pays': pays[0],
+        'user': req.session.user
     })
 }
 
@@ -27,6 +29,7 @@ const deleteOfPaysBack = async (req, res) => {
     const pays = await get_all_pays();
     return res.render('back/pays/index.njk', {
         'pays': pays,
+        'user': req.session.user
     });
 }
 
@@ -37,7 +40,8 @@ const editOfPaysBack = async (req, res) => {
     return res.render('back/pays/form.njk', {
         'pays': pays[0],
         'title': 'Pays modif',
-        'type_url_api': pays[0].id_pays+'/edit/'
+        'type_url_api': pays[0].id_pays+'/edit/',
+        'user': req.session.user
     })
 }
 
@@ -62,7 +66,8 @@ const newOfPaysBack = (req, res) => {
     return res.render('back/pays/form.njk', {
         'pays': null,
         'title': 'Pays creation',
-        'type_url_api': 'new/'
+        'type_url_api': 'new/',
+        'user': req.session.user
     })
 }
 

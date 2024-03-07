@@ -11,6 +11,7 @@ const tableauOfAthleteBack = async (req, res) => {
     const athletes = await get_all_athletes();
     return res.render('back/athlete/index.njk', {
         'athletes': athletes,
+        'user': req.session.user
     })
 }
 
@@ -19,6 +20,7 @@ const showOfAthleteBack = async (req, res) => {
     const athlete = await get_one_athlete_by_id(id);
     return res.render('back/athlete/show.njk', {
         'athlete': athlete[0],
+        'user': req.session.user
     })
 }
 
@@ -28,6 +30,7 @@ const deleteOfAthleteBack = async (req, res) => {
     const athletes = await get_all_athletes();
     return res.render('back/athlete/index.njk', {
         'athletes': athletes,
+        'user': req.session.user
     })
 }
 
@@ -39,7 +42,8 @@ const editOfAthleteBack = async (req, res) => {
         'athlete': athlete[0],
         'pays': pays,
         'title': 'Athlete modif',
-        'type_url_api': athlete[0].id_athlete+'/edit/'
+        'type_url_api': athlete[0].id_athlete+'/edit/',
+        'user': req.session.user
     })
 }
 
@@ -65,7 +69,8 @@ const newOfAthleteBack = async (req, res) => {
         'athlete': null,
         'pays': pays,
         'title': 'Athlete creation',
-        'type_url_api': 'new/'
+        'type_url_api': 'new/',
+        'user': req.session.user
     })
 }
 

@@ -11,6 +11,7 @@ const getAllSports = async (req, res) => {
     const sports = await get_all_sports();
     return res.render('front/sport/liste_sports.njk', {
         'sports': sports,
+        'user': req.session.user
     });
 }
 
@@ -19,6 +20,7 @@ const EpreuveOfSport = async (req, res) => {
     const epreuves = await get_epreuve_by_sport_id(id);
     return res.render('front/sport/epreuve_sport.njk', {
         'epreuves': epreuves,
+        'user': req.session.user
     });
 }
 
@@ -26,6 +28,7 @@ const tableauOfSportBack = async (req, res) => {
     const sports = await get_all_sports();
     return res.render('back/sport/index.njk', {
         'sports': sports,
+        'user': req.session.user
     });
 }
 
@@ -34,6 +37,7 @@ const showOfSportBack = async (req, res) => {
     const sport = await get_one_sport_by_id(id);
     return res.render('back/sport/show.njk', {
         'sport': sport[0],
+        'user': req.session.user
     })
 }
 
@@ -43,6 +47,7 @@ const deleteOfSportBack = async (req, res) => {
     const sports = await get_all_sports();
     return res.render('back/sport/index.njk', {
         'sports': sports,
+        'user': req.session.user
     });
 }
 
@@ -52,7 +57,8 @@ const editOfSportBack = async (req, res) => {
     return res.render('back/sport/form.njk', {
         'sport': sport[0],
         'title': 'Sport modif',
-        'type_url_api': sport[0].id_sport+'/edit/'
+        'type_url_api': sport[0].id_sport+'/edit/',
+        'user': req.session.user
     })
 }
 
@@ -76,7 +82,8 @@ const newOfSportBack = (req, res) => {
     return res.render('back/sport/form.njk', {
         'sport': null,
         'title': 'Sport creation',
-        'type_url_api': 'new/'
+        'type_url_api': 'new/',
+        'user': req.session.user
     })
 }
 
