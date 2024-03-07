@@ -38,7 +38,7 @@ const update_sport_by_id = async (id, data) => {
     const db = await db_connection();
     data.id_sport = id;
     try {
-        const [ results ] = await db.query('UPDATE jeux_olympiques.sport SET sport.Nom = :Nom where sport.id_sport = :id_sport:',
+        const [ results ] = await db.query('UPDATE jeux_olympiques.sport SET sport.Nom = :Nom where sport.id_sport = :id_sport',
             data)
         return results;
     } catch (error) {
