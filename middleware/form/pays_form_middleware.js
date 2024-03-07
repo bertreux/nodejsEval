@@ -1,7 +1,9 @@
 import pays_form_validator from "../../validator/pays_form_validator.js";
 
 const pays_form_middleware = (req, res, next) => {
-    const validate = pays_form_validator.validate(req, req.body, { abortEarly: false });
+    console.log()
+    const validate = pays_form_validator.validate(req.body);
+
     if(validate.error){
         return res.status(400).json({
             status: 400,

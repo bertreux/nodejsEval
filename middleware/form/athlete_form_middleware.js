@@ -1,7 +1,7 @@
 import athlete_form_validator from "../../validator/athlete_form_validator.js";
 
 const athlete_form_middleware = (req, res, next) => {
-    const validate = athlete_form_validator.validate(req, req.body, { abortEarly: false });
+    const validate = athlete_form_validator.validate(req.body);
     if(validate.error){
         return res.status(400).json({
             status: 400,
