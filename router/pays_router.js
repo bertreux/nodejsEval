@@ -1,16 +1,18 @@
 import express from "express";
-import {tableauOfPaysBack, showOfPaysBack, editOfPaysBack, newOfPaysBack} from "../controller/pays_controller.js";
+import {tableauOfPaysBack, showOfPaysBack, editOfPaysBack, newOfPaysBack, deleteOfPaysBack, insertDataEditOfPaysBack, insertDataNewOfPaysBack} from "../controller/pays_controller.js";
 
 const pays_router = express.Router();
 
 pays_router.get('/gestion/pays/', tableauOfPaysBack);
 
-pays_router.get('/gestion/sport/:id/show', showOfPaysBack);
+pays_router.get('/gestion/pays/:id/show', showOfPaysBack);
 
-pays_router.get('/gestion/sport/:id/edit', editOfPaysBack);
-//pays_router.post('/gestion/sport/:id/edit', insertDataEditOfPaysBack);
+pays_router.get('/gestion/pays/:id/sup', deleteOfPaysBack);
 
-pays_router.get('/gestion/sport/new', newOfPaysBack);
-//pays_router.post('/gestion/sport/new', insertDataNewOfPaysBack);
+pays_router.get('/gestion/pays/:id/edit', editOfPaysBack);
+pays_router.post('/gestion/pays/:id/edit', insertDataEditOfPaysBack);
+
+pays_router.get('/gestion/pays/new', newOfPaysBack);
+pays_router.post('/gestion/pays/new', insertDataNewOfPaysBack);
 
 export default pays_router;

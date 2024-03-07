@@ -13,6 +13,7 @@
             <th>prenom</th>
             <th>age</th>
             <th>sexe</th>
+            <th>pays_id</th>
             <th>actions</th>
         </tr>
         </thead>
@@ -24,6 +25,7 @@
                 <td>{{ athlete.prenom }}</td>
                 <td>{{ athlete.age }}</td>
                 <td>{{ athlete.sexe }}</td>
+                <td>{{ athlete.pays_id }}</td>
                 <td>
                     <a href="/gestion/athlete/{{ athlete.id_athlete }}/show" class="btn btn-info">Voire</a>
                     <a href="/gestion/athlete/{{ athlete.id_athlete }}/edit" class="btn btn-warning">Modifier</a>
