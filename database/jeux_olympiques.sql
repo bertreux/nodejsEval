@@ -47,7 +47,10 @@ CREATE TABLE `athlete` (
 CREATE TABLE `sport` (
  `id_sport` TINYINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
  `Nom` varchar(255) NOT NULL,
- `Image` varchar(255) NOT NULL
+ `Image` varchar(255) NOT NULL,
+ `latitude` float(255) NOT NULL,
+ `longitude` float(255) NOT NULL
+
 
 );
 
