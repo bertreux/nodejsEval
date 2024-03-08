@@ -88,7 +88,7 @@ const get_athlete_pays = async (id) => {
 const get_all_participant_from_epreuve_id = async (id) => {
     const db = await db_connection();
     try {
-        const [ results ] = await db.query('SELECT athlete.* FROM jeux_olympiques.athlete JOIN jeux_olympiques.participation p on athlete.id_athlete = p.athlete_id JOIN jeux_olympiques.epreuve e on e.id_epreuve = p.epreuve_id WHERE e.id_epreuve = :id',
+        const [ results ] = await db.query('SELECT DISTINCT athlete.* FROM jeux_olympiques.athlete JOIN jeux_olympiques.participation p on athlete.id_athlete = p.athlete_id JOIN jeux_olympiques.epreuve e on e.id_epreuve = p.epreuve_id WHERE e.id_epreuve = :id',
             {
                 id: id,
             })
