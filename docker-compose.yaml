@@ -1,0 +1,20 @@
+services:
+  db:
+    image: mysql
+    volumes:
+      - ./database:/app
+      - ./mysql:/var/lib/mysql
+    ports:
+      - 3306:3306
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    working_dir: /app
+  node:
+    image: node
+    volumes:
+      - .:/app
+    ports:
+      - 3000:3000
+    tty: true
+    working_dir: /app
