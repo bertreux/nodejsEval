@@ -1,9 +1,34 @@
 {% extends "base.njk" %}
 
 {% block title %}
-    Titres
+    Liste des titres
 {% endblock %}
 
 {% block body %}
-    <h1>Titres</h1>
+    <div class="row">
+        <h1>Liste des titres</h1>
+        <hr>
+        {% for titre in titres %}
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Epreuve</th>
+                        <th>Medaille</th>
+                        <th>Athlete</th>
+                        <th>Pays</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ titre.Nom }}</td>
+                        <td>{{ titre.couleur }} : <img class="medaille" src="{{ titre.image_medaille }}" alt=""/></td>
+                        <td>{{ titre.nom }} {{ titre.prenom }}</td>
+                        <td>{{ titre.nom_pays }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        {% else %}
+            <p>Aucun titre enregistré</p>
+        {% endfor %}
+    </div>
 {% endblock %}
