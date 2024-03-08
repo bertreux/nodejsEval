@@ -12,6 +12,7 @@ const getAllAthlete = async (req, res) => {
     const athletes = await get_all_athletes();
     return res.render('front/athletes/athletes.njk', {
         'athletes': athletes,
+        'title': 'Liste des Athletes',
         'user': req.session.user
     });
 }

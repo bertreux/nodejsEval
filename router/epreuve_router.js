@@ -1,11 +1,23 @@
 import express from "express";
-import {getAllEpreuve, tableauOfEpreuveBack, showOfEpreuveBack, editOfEpreuveBack, newOfEpreuveBack, deleteOfEpreuveBack, insertDataEditOfEpreuveBack, insertDataNewOfEpreuveBack} from "../controller/epreuve_controller.js";
+import {
+    getAllEpreuve,
+    tableauOfEpreuveBack,
+    showOfEpreuveBack,
+    editOfEpreuveBack,
+    newOfEpreuveBack,
+    deleteOfEpreuveBack,
+    insertDataEditOfEpreuveBack,
+    insertDataNewOfEpreuveBack,
+    get_participant_epreuve
+} from "../controller/epreuve_controller.js";
 import epreuve_form_middleware from "../middleware/form/epreuve_form_middleware.js";
 import {est_connecte} from "../middleware/form/connexion_form_middleware.js";
 
 const epreuve_router = express.Router();
 
 epreuve_router.get('/epreuves/', getAllEpreuve);
+
+epreuve_router.get('/epreuve/:id', get_participant_epreuve);
 
 epreuve_router.get('/gestion/epreuves/', [est_connecte], tableauOfEpreuveBack);
 

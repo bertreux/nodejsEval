@@ -6,12 +6,13 @@ import {
     update_epreuve_by_id
 } from "../repositories/epreuve_repository.js";
 import {get_all_sports} from "../repositories/sport_repository.js";
-import {get_all_athletes} from "../repositories/athlete_repository.js";
+import {get_all_athletes, get_all_participant_from_epreuve_id} from "../repositories/athlete_repository.js";
 
 const getAllEpreuve = async (req, res) => {
     const epreuves = await get_all_epreuves();
     return res.render('front/epreuve/liste_epreuve.njk', {
         'epreuves': epreuves,
+        'title': 'Liste des Epreuves',
         'user': req.session.user
     });
 }
@@ -102,4 +103,15 @@ const insertDataNewOfEpreuveBack = async (req, res) => {
     });
 }
 
-export { getAllEpreuve, tableauOfEpreuveBack, showOfEpreuveBack, editOfEpreuveBack, newOfEpreuveBack, deleteOfEpreuveBack, insertDataNewOfEpreuveBack, insertDataEditOfEpreuveBack };
+const get_participant_epreuve = async (req, res) => {
+    const { id } = { ...req.params };
+    const athletes = await get_all_participant_from_epreuve_id(id);
+    const epreuve = await get_one_epreuve_by_id(id)
+    return res.render('front/athletes/athletes.njk', {
+        'title': 'Listes des Athletes de l\'épreuve '+epreuve[0].Nom,
+        'athletes': athletes,
+        'user': req.session.user
+    })
+}
+
+export { getAllEpreuve, tableauOfEpreuveBack, showOfEpreuveBack, editOfEpreuveBack, newOfEpreuveBack, deleteOfEpreuveBack, insertDataNewOfEpreuveBack, insertDataEditOfEpreuveBack, get_participant_epreuve };

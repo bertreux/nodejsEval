@@ -1,12 +1,12 @@
 {% extends "base.njk" %}
 
 {% block title %}
-    Epreuve
+{{ title }}
 {% endblock %}
 
 {% block body %}
     <div class="row">
-    <h1>Listes des épreuves</h1>
+    <h1>{{ title }}</h1>
     <p>Cliquer sur une épreuve pour voir ses participants</p>
     <hr>
     {% for epreuve in epreuves %}
