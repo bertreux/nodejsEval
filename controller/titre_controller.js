@@ -55,7 +55,7 @@ const editOfTitreBack = async (req, res) => {
         'athletes': athletes,
         'epreuves': epreuves,
         'medailles': medailles,
-        'title': 'Titre modif',
+        'title': 'Participation modif',
         'type_url_api': titre[0].id_participation+'/edit/',
         'user': req.session.user
     })
@@ -86,7 +86,7 @@ const newOfTitreBack = async (req, res) => {
         'athletes': athletes,
         'epreuves': epreuves,
         'medailles': medailles,
-        'title': 'Titre creation',
+        'title': 'Participation creation',
         'type_url_api': 'new/',
         'user': req.session.user
     })
