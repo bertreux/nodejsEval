@@ -54,4 +54,15 @@ const utilisateur_exist_deja = async (req, res, next) => {
     next();
 }
 
-export {connexion_form_middleware, is_credential_valid, utilisateur_exist_deja};
+const est_connecte = (req, res, next) => {
+    if(req.session.user === undefined || req.session.user === null){
+        return res.render('errors/403.njk', {
+            'type_url_api': 'login/',
+            'user': req.session.user
+        });
+    }
+
+    next();
+}
+
+export {connexion_form_middleware, is_credential_valid, utilisateur_exist_deja, est_connecte};
