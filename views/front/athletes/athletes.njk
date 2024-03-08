@@ -8,12 +8,12 @@
     <h1>Listes des Athletes</h1>
     <p>Cliquer sur un athlete pour voir ses informations</p>
     <hr>
-    {% for athlete in athlete %}
+    {% for athlete in athletes %}
         <a class="nav-link" href="/athletes/{{ athlete.id_athlete }}">
             <article class="col-4 mb-4" key={article.id}>
                 <div class="card">
                     <h2 class="card-header">
-                        {{ athlete.Nom }}
+                        {{ athlete.prenom }} {{ athlete.nom }}
                     </h2>
                     {# <div class="card-body article_contenu">
                         {article.contenu}
