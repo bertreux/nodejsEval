@@ -10,7 +10,6 @@ addEventListener("DOMContentLoaded", async (event) => {
     const request = await fetch(requestInfos);
     const response = await request.json();
     if (response.status === 200) {
-        console.log(response.sports)
         var map = L.map('map').setView([48.8588255,2.2646345], 13);
 
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
