@@ -1,14 +1,29 @@
 {% extends "base.njk" %}
 
 {% block title %}
-    Sports
+    Liste des Sports
 {% endblock %}
 
 {% block body %}
-    <h1>Sports</h1>
-    {% for sport in sports %}
-        <a href="/sport/{{ sport.id_sport }}"><p>{{ sport.Nom }}</p></a>
-    {% else %}
-        <p>Aucun sport enregistré</p>
-    {% endfor %}
+    <div class="row">
+        <h1>Liste des Sports</h1>
+        <p>Cliquer sur un sport pour voir ses épreuves</p>
+        <hr>
+        {% for sport in sports %}
+            <article class="col-4 mb-4 mx-1">
+                <a class="nav-link row" href="/epreuve/{{ sport.id_sport }}">
+                    <div class="card">
+                        <h2 class="card-header">
+                            {{ sport.Nom }}
+                        </h2>
+                        <div class="card-img article_contenu">
+                            <img class="imageCart" src="{{ sport.Image }}" alt=""/>
+                        </div>
+                    </div>
+                </a>
+            </article>
+        {% else %}
+            <p>Aucun sport enregistré</p>
+        {% endfor %}
+    </div>
 {% endblock %}

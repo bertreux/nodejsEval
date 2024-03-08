@@ -1,11 +1,11 @@
 {% extends "base.njk" %}
 
 {% block title %}
-    Athlete
+{{ title }}
 {% endblock %}
 
 {% block body %}
-    <h1>Listes des Athletes</h1>
+    <h1>{{ title }}</h1>
     <p>Cliquer sur un athlete pour voir ses informations</p>
     <hr>
     {% for athlete in athletes %}

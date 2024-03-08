@@ -18,8 +18,10 @@ const getAllSports = async (req, res) => {
 const EpreuveOfSport = async (req, res) => {
     const { id } = { ...req.params };
     const epreuves = await get_epreuve_by_sport_id(id);
-    return res.render('front/sport/epreuve_sport.njk', {
+    const sport = await get_one_sport_by_id(id);
+    return res.render('front/epreuve/liste_epreuve.njk', {
         'epreuves': epreuves,
+        'title': 'Listes des Epreuves du sport '+sport[0].Nom,
         'user': req.session.user
     });
 }

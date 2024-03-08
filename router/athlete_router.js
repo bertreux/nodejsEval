@@ -1,8 +1,7 @@
 import express from "express";
 import {getAllAthlete, tableauOfAthleteBack, showOfAthleteBack, editOfAthleteBack, newOfAthleteBack, insertDataNewOfAthleteBack, insertDataEditOfAthleteBack, deleteOfAthleteBack} from "../controller/athlete_controller.js";
 import athlete_form_middleware from "../middleware/form/athlete_form_middleware.js";
-import { get_all_athletes } from "../repositories/athlete_repository.js";
-
+import {est_connecte} from "../middleware/form/connexion_form_middleware.js";
 
 const athlete_router = express.Router();
 

@@ -85,5 +85,18 @@ const get_athlete_pays = async (id) => {
     }
 };
 
+const get_all_participant_from_epreuve_id = async (id) => {
+    const db = await db_connection();
+    try {
+        const [ results ] = await db.query('SELECT athlete.* FROM jeux_olympiques.athlete JOIN jeux_olympiques.epreuve e on athlete.id_athlete = e.athlete_id WHERE e.id_epreuve = :id',
+            {
+                id: id,
+            })
+        return results;
+    } catch (error) {
+        return error;
+    }
+};
 
-export { get_all_athletes, get_one_athlete_by_id, insert_new_athlete, update_athlete_by_id, delete_athlete_by_id, get_athlete_medaille };
+
+export { get_all_athletes, get_one_athlete_by_id, insert_new_athlete, update_athlete_by_id, delete_athlete_by_id, get_athlete_medaille, get_all_participant_from_epreuve_id };
