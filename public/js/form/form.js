@@ -1,14 +1,12 @@
-import config from "../config.js";
-
 const form = document.querySelector('form');
 const message = document.querySelector('.message');
+const origin = location.origin;
 
 const sendFormValueAndReturnResponse = (url, msg_status_201) =>{
-    console.log(`${config[config.env].api_url}/${url}`)
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const type = Object.fromEntries(new FormData(e.target));
-        const requestInfos = new Request(`${config[config.env].api_url}/${url}`, {
+        const requestInfos = new Request(`${origin}/${url}`, {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json'
