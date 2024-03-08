@@ -56,10 +56,8 @@ CREATE TABLE `epreuve` (
    `id_epreuve` TINYINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
    `Nom` varchar(255) NOT NULL,
    `sport_id` TINYINT UNSIGNED NOT NULL,
-   `athlete_id` TINYINT UNSIGNED NOT NULL,
    `Image` varchar(255) NOT NULL,
-   FOREIGN KEY (sport_id) REFERENCES sport(id_sport),
-   FOREIGN KEY (athlete_id) REFERENCES athlete(id_athlete)
+   FOREIGN KEY (sport_id) REFERENCES sport(id_sport)
 );
 
 CREATE TABLE `medaille` (
@@ -72,7 +70,7 @@ CREATE TABLE `participation` (
   `id_participation` TINYINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
   `athlete_id` TINYINT UNSIGNED NOT NULL,
   `epreuve_id` TINYINT UNSIGNED NOT NULL,
-  `medaille_id` TINYINT UNSIGNED NOT NULL,
+  `medaille_id` TINYINT UNSIGNED,
   FOREIGN KEY (athlete_id) REFERENCES athlete(id_athlete),
   FOREIGN KEY (epreuve_id) REFERENCES epreuve(id_epreuve),
   FOREIGN KEY (medaille_id) REFERENCES medaille(id_medaille)
@@ -85,24 +83,37 @@ CREATE TABLE `user` (
 );
 
 INSERT INTO `pays` (`id_pays`, `Nom`) VALUES
-(NULL, 'France');
+(NULL, 'France'),
+(NULL, 'Italie');
 
-INSERT INTO `athlete` (`id_athlete`, `nom`, `prenom`, `age`, `sexe`, `pays_id`) VALUES
-(NULL, 'Doe', 'John', 25, 'H', 1);
+INSERT INTO `athlete` (`id_athlete`, `nom`, `prenom`, `age`, `sexe`, `pays_id`, `Image`) VALUES
+(NULL, 'Doe', 'John', 25, 'H', 1, 'https://img.freepik.com/vecteurs-premium/icone-avatar-masculin-personne-inconnue-anonyme-icone-profil-avatar-par-defaut-utilisateur-medias-sociaux-homme-affaires-silhouette-profil-homme-isole-fond-blanc-illustration-vectorielle_735449-120.jpg'),
+(NULL, 'Alice', 'Emma', 18, 'F', 1, 'https://th.bing.com/th/id/OIP.peNkLDunoTVEhJ1_xw5vGwHaF7?rs=1&pid=ImgDetMain');
 
-INSERT INTO `medaille` (`id_medaille`, `couleur`) VALUES
-(NULL, 'Bronze'),
-(NULL, 'Argent'),
-(NULL, 'Or');
+INSERT INTO `medaille` (`id_medaille`, `couleur`, `Image`) VALUES
+(NULL, 'Bronze', 'https://th.bing.com/th/id/OIP.OL3SuTfHahnKEHCL6HRX8gHaHa?rs=1&pid=ImgDetMain'),
+(NULL, 'Argent', 'https://cdn.pixabay.com/photo/2016/08/26/15/59/medal-1622529_1280.png'),
+(NULL, 'Or', 'https://img2.gratispng.com/20180323/gce/kisspng-gold-medal-olympic-medal-award-golden-cup-5ab5a64946f4c8.1474882115218540252906.jpg');
 
-INSERT INTO `sport` (`id_sport`, `Nom`) VALUES
-(NULL, 'Athletisme');
+INSERT INTO `sport` (`id_sport`, `Nom`, `Image`, `latitude`, `longitude`) VALUES
+(NULL, 'Athletisme', 'https://th.bing.com/th/id/OIP.VD-DKmK_wVYmGEbiJxV4SAHaE7?rs=1&pid=ImgDetMain', 48.8698, 2.3070),
+(NULL, 'Football', 'https://resize-europe1.lanmedia.fr/r/620,310,FFFFFF,center-middle/img/var/europe1/storage/images/europe1/dossiers/football/9879360-8-fre-FR/Football.jpg', 48.9246, 2.3603);
 
-INSERT INTO `epreuve` (`id_epreuve`, `Nom`, `sport_id`, `athlete_id`) VALUES
-(NULL, 'Course 500 mètres', 1, 1);
+INSERT INTO `epreuve` (`id_epreuve`, `Nom`, `sport_id`, `Image`) VALUES
+(NULL, 'Course 500 mètres', 1, 'https://th.bing.com/th/id/R.3f659c2f90cddd619e1627e8af2d4a12?rik=RDELTHOl%2bF0k9Q&pid=ImgRaw&r=0'),
+(NULL, 'Course 100 mètres haie', 1, 'https://th.bing.com/th/id/OIP.VAFlgD-iLAqjP-E1T5y9FwHaEK?rs=1&pid=ImgDetMain'),
+(NULL, 'relais 4x400m', 1, 'https://th.bing.com/th/id/OIP.ck7ci_cu_pu0EYpO0QI3zAHaEK?rs=1&pid=ImgDetMain'),
+(NULL, 'tournoi de football', 2, 'https://www.soccerbible.com/media/117951/balls-5-min.jpg');
 
 INSERT INTO `participation` (`id_participation`, `athlete_id`, `epreuve_id`, `medaille_id`) VALUES
-(NULL, 1, 1, 3);
+(NULL, 1, 1, 1),
+(NULL, 1, 2, NULL),
+(NULL, 1, 3, NULL),
+(NULL, 1, 4, 3),
+(NULL, 2, 1, 2),
+(NULL, 2, 2, 2),
+(NULL, 2, 3, 3),
+(NULL, 2, 4, 1);
 
 COMMIT;
 
