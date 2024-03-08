@@ -10,7 +10,7 @@
 
 ## Prérequis
 
-   - node OU docker
+   - node et mysql OU docker
 
 ## Docker (si node locale ne pas faire)
 
@@ -39,6 +39,8 @@
    ```
    npm install
    ```
+
+   Si vous n'utilisé pas docker vous devez lancer le script jeux_oympiques.sql dans database dans votre server mysql
 
 2**Configure `.env`:**
 
