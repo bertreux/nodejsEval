@@ -32,6 +32,13 @@ const athlete_form_validator = joi.object({
         'number.positive': 'L\'identifiant du pays doit être positif',
         'any.required': 'L\'identifiant du pays est requis',
     }),
+    Image: joi.string().min(5).max(255).required().messages({
+        'string.base': 'L\'url de l\'image doit être une chaîne de caractères',
+        'string.empty': 'L\'url de l\'image ne doit pas être vide',
+        'string.max': 'L\'url de l\'image ne doit pas dépasser 255 caractères',
+        'string.min': 'L\'url de l\'image doit etre supérieur à 5 caractères',
+        'any.required': 'L\'url de l\'image est requis',
+    }),
 }).options({ convert: true, abortEarly: false, stripUnknown: true });
 
 export default athlete_form_validator;
