@@ -13,11 +13,10 @@ const titre_form_validator = joi.object({
         'number.positive': "L'identifiant de l'épreuve doit être positif",
         'any.required': "L'identifiant de l'épreuve est requis",
     }),
-    medaille_id: joi.number().integer().positive().required().messages({
+    medaille_id: joi.number().integer().positive().messages({
         'number.base': "L'identifiant de la médaille doit être un nombre",
         'number.integer': "L'identifiant de la médaille doit être un entier",
         'number.positive': "L'identifiant de la médaille doit être positif",
-        'any.required': "L'identifiant de la médaille est requis",
     }),
 }).options({ convert: true, abortEarly: false, stripUnknown: true });
 
