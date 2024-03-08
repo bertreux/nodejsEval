@@ -50,8 +50,6 @@ CREATE TABLE `sport` (
  `Image` varchar(255) NOT NULL,
  `latitude` float(25) NOT NULL,
  `longitude` float(25) NOT NULL
-
-
 );
 
 CREATE TABLE `epreuve` (
