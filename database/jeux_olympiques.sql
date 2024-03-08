@@ -93,7 +93,8 @@ INSERT INTO `athlete` (`id_athlete`, `nom`, `prenom`, `age`, `sexe`, `pays_id`, 
 INSERT INTO `medaille` (`id_medaille`, `couleur`, `Image`) VALUES
 (NULL, 'Bronze', 'https://th.bing.com/th/id/OIP.OL3SuTfHahnKEHCL6HRX8gHaHa?rs=1&pid=ImgDetMain'),
 (NULL, 'Argent', 'https://cdn.pixabay.com/photo/2016/08/26/15/59/medal-1622529_1280.png'),
-(NULL, 'Or', 'https://img2.gratispng.com/20180323/gce/kisspng-gold-medal-olympic-medal-award-golden-cup-5ab5a64946f4c8.1474882115218540252906.jpg');
+(NULL, 'Or', 'https://img2.gratispng.com/20180323/gce/kisspng-gold-medal-olympic-medal-award-golden-cup-5ab5a64946f4c8.1474882115218540252906.jpg'),
+(NULL, 'Pas de médaille', ' ');
 
 INSERT INTO `sport` (`id_sport`, `Nom`, `Image`, `latitude`, `longitude`) VALUES
 (NULL, 'Athletisme', 'https://th.bing.com/th/id/OIP.VD-DKmK_wVYmGEbiJxV4SAHaE7?rs=1&pid=ImgDetMain', 48.8698, 2.3070),
@@ -107,8 +108,8 @@ INSERT INTO `epreuve` (`id_epreuve`, `Nom`, `sport_id`, `Image`) VALUES
 
 INSERT INTO `participation` (`id_participation`, `athlete_id`, `epreuve_id`, `medaille_id`) VALUES
 (NULL, 1, 1, 1),
-(NULL, 1, 2, NULL),
-(NULL, 1, 3, NULL),
+(NULL, 1, 2, 4),
+(NULL, 1, 3, 4),
 (NULL, 1, 4, 3),
 (NULL, 2, 1, 2),
 (NULL, 2, 2, 2),

@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block body %}
+    <div class="row">
     <h1>{{ title }}</h1>
     <p>Cliquer sur un athlete pour voir ses informations</p>
     <hr>
@@ -15,13 +16,14 @@
                     <h2 class="card-header">
                         {{ athlete.prenom }} {{ athlete.nom }}, {{ athlete.age }} ans
                     </h2>
-                    {# <div class="card-body article_contenu">
-                        {article.contenu}
-                    </div> #}
+                    <div class="card-img article_contenu">
+                        <img class="imageCart" src="{{ athlete.Image }}" alt=""/>
+                    </div>
                 </div>
             </article>
         
     {% else %}
         <p>Aucun Athlete enregistré</p>
     {% endfor %}
+    </div>
 {% endblock %}
