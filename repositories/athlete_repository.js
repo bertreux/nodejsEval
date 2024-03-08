@@ -26,7 +26,7 @@ const get_one_athlete_by_id = async (id) => {
 const insert_new_athlete = async (data) => {
     const db = await db_connection();
     try {
-        const [ results ] = await db.query('INSERT INTO jeux_olympiques.athlete VALUE(NULL, :nom, :prenom, :age, :sexe)',
+        const [ results ] = await db.query('INSERT INTO jeux_olympiques.athlete VALUE(NULL, :nom, :prenom, :age, :sexe, :Image)',
             data)
         return results;
     } catch (error) {
@@ -38,7 +38,7 @@ const update_athlete_by_id = async (id, data) => {
     const db = await db_connection();
     data.id_athlete = id;
     try {
-        const [ results ] = await db.query('UPDATE jeux_olympiques.athlete SET athlete.nom = :nom, athlete.prenom = :prenom, athlete.age = :age, athlete.sexe = :sexe where athlete.id_athlete = :id_athlete:',
+        const [ results ] = await db.query('UPDATE jeux_olympiques.athlete SET athlete.nom = :nom, athlete.prenom = :prenom, athlete.age = :age, athlete.sexe = :sexe, athlete.Image = :Image where athlete.id_athlete = :id_athlete',
             data)
         return results;
     } catch (error) {
