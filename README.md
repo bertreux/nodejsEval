@@ -3,6 +3,10 @@
    Suiver ces étapes pour l'initialisation de ce projet nodejs.
 
 
+## BDD
+
+![alt text](https://github.com/bertreux/nodejsEval/blob/main/database/jeux_olympiques.png?raw=true)
+
 
 ## Prérequis
 
