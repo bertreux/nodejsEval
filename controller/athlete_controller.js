@@ -7,6 +7,16 @@ import {
 } from "../repositories/athlete_repository.js";
 import {get_all_pays} from "../repositories/pays_repository.js";
 
+
+const getAllAthlete = async (req, res) => {
+    const athlete = await get_all_athletes();
+    return res.render('front/athlete/liste_athlete.njk', {
+        'athletes': athletes,
+        'user': req.session.user
+    });
+}
+
+
 const tableauOfAthleteBack = async (req, res) => {
     const athletes = await get_all_athletes();
     return res.render('back/athlete/index.njk', {
@@ -89,4 +99,4 @@ const insertDataNewOfAthleteBack = async (req, res) => {
     });
 }
 
-export {tableauOfAthleteBack, showOfAthleteBack, editOfAthleteBack, newOfAthleteBack, insertDataNewOfAthleteBack, insertDataEditOfAthleteBack, deleteOfAthleteBack};
+export {getAllAthlete, tableauOfAthleteBack, showOfAthleteBack, editOfAthleteBack, newOfAthleteBack, insertDataNewOfAthleteBack, insertDataEditOfAthleteBack, deleteOfAthleteBack};

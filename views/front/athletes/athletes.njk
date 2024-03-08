@@ -1,30 +1,27 @@
 {% extends "base.njk" %}
 
 {% block title %}
-    Athlètes
+    Athlete
 {% endblock %}
 
 {% block body %}
-    <h1>Athlètes</h1>
-    {% if athletes.length > 0 %}
-        <ul>
-            {% for athlete in athletes %}
-                <li>
-                    <a href="/athletes/{{ athlete.id_athlete }}">
-                        <p>Nom: {{ athlete.Nom }}</p>
-                        <p>Prénom: {{ athlete.Prenom }}</p>
-                        <p>Âge: {{ athlete.Age }}</p>
-                        <p>Pays: {{ athlete.Pays }}</p>
-                        {% if athlete.Pays %}
-                            <script>
-                                console.log("Nom du pays:", "{{ athlete.Pays }}");
-                            </script>
-                        {% endif %}
-                    </a>
-                </li>
-            {% endfor %}
-        </ul>
+    <h1>Listes des Athletes</h1>
+    <p>Cliquer sur un athlete pour voir ses informations</p>
+    <hr>
+    {% for athlete in athlete %}
+        <a class="nav-link" href="/athletes/{{ athlete.id_athlete }}">
+            <article class="col-4 mb-4" key={article.id}>
+                <div class="card">
+                    <h2 class="card-header">
+                        {{ athlete.Nom }}
+                    </h2>
+                    {# <div class="card-body article_contenu">
+                        {article.contenu}
+                    </div> #}
+                </div>
+            </article>
+        </a>
     {% else %}
-        <p>Aucun athlète enregistré</p>
-    {% endif %}
+        <p>Aucun Athlete enregistré</p>
+    {% endfor %}
 {% endblock %}
