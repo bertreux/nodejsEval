@@ -9,18 +9,18 @@
     <p>Cliquer sur un athlete pour voir ses informations</p>
     <hr>
     {% for athlete in athletes %}
-        <a class="nav-link" href="/athletes/{{ athlete.id_athlete }}">
+
             <article class="col-4 mb-4" key={article.id}>
                 <div class="card">
                     <h2 class="card-header">
-                        {{ athlete.prenom }} {{ athlete.nom }}
+                        {{ athlete.prenom }} {{ athlete.nom }}, {{ athlete.age }} ans
                     </h2>
                     {# <div class="card-body article_contenu">
                         {article.contenu}
                     </div> #}
                 </div>
             </article>
-        </a>
+        
     {% else %}
         <p>Aucun Athlete enregistré</p>
     {% endfor %}
