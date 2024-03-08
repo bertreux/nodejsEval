@@ -15,4 +15,58 @@
     display: block;
     margin-bottom: 10px;
     border-radius: 5%;
+    max-height: 250px;
+}
+
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.title {
+    text-align: center;
+    font-size: 36px;
+    color: #333;
+}
+
+.sport-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.sport-list {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.sport-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sport-list li {
+    margin-bottom: 10px;
+}
+
+.sport-list a {
+    text-decoration: none;
+    color: #000;
+    display: flex;
+    align-items: center;
+}
+
+.sport-list img {
+    margin-right: 10px;
+}
+
+.sport-list a:hover {
+    text-decoration: underline;
+}
+
+.sport-list li a {
+    display: block;
+    border: 1px solid #ccc;
+    padding: 10px;
 }
