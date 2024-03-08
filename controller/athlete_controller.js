@@ -9,7 +9,7 @@ import {get_all_pays} from "../repositories/pays_repository.js";
 
 
 const getAllAthlete = async (req, res) => {
-    const athlete = await get_all_athletes();
+    const athletes = await get_all_athletes();
     return res.render('front/athlete/liste_athlete.njk', {
         'athletes': athletes,
         'user': req.session.user

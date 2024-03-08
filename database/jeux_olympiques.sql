@@ -40,12 +40,15 @@ CREATE TABLE `athlete` (
   `age` int(3) NOT NULL,
   `sexe` varchar(1) NOT NULL,
   `pays_id` TINYINT UNSIGNED NOT NULL,
+  `Image` URL(255) NOT NULL,
   FOREIGN KEY (pays_id) REFERENCES pays(id_pays)
 );
 
 CREATE TABLE `sport` (
  `id_sport` TINYINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
- `Nom` varchar(255) NOT NULL
+ `Nom` varchar(255) NOT NULL,
+ `Image` URL(255) NOT NULL
+
 );
 
 CREATE TABLE `epreuve` (
@@ -53,13 +56,15 @@ CREATE TABLE `epreuve` (
    `Nom` varchar(255) NOT NULL,
    `sport_id` TINYINT UNSIGNED NOT NULL,
    `athlete_id` TINYINT UNSIGNED NOT NULL,
+   `Image` URL(255) NOT NULL,
    FOREIGN KEY (sport_id) REFERENCES sport(id_sport),
    FOREIGN KEY (athlete_id) REFERENCES athlete(id_athlete)
 );
 
 CREATE TABLE `medaille` (
   `id_medaille` TINYINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-  `couleur` varchar(255) NOT NULL
+  `couleur` varchar(255) NOT NULL,
+   `Image` URL(255) NOT NULL
 );
 
 CREATE TABLE `participation` (
