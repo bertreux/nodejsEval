@@ -3,10 +3,14 @@
    Suiver ces étapes pour l'initialisation de ce projet nodejs.
 
 
+## BDD
+
+![alt text](https://github.com/bertreux/nodejsEval/blob/main/database/jeux_olympiques.png?raw=true)
+
 
 ## Prérequis
 
-   - node OU docker
+   - node et mysql OU docker
 
 ## Docker (si node locale ne pas faire)
 
@@ -35,6 +39,8 @@
    ```
    npm install
    ```
+
+   Si vous n'utilisé pas docker vous devez lancer le script jeux_oympiques.sql dans database dans votre server mysql
 
 2**Configure `.env`:**
 
