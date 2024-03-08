@@ -26,7 +26,7 @@ const get_one_sport_by_id = async (id) => {
 const insert_new_sport = async (data) => {
     const db = await db_connection();
     try {
-        const [ results ] = await db.query('INSERT INTO jeux_olympiques.sport VALUE(NULL, :Nom, :Image)',
+        const [ results ] = await db.query('INSERT INTO jeux_olympiques.sport VALUE(NULL, :Nom, :Image, :latitude, :longitude)',
             data)
         return results;
     } catch (error) {
@@ -38,7 +38,7 @@ const update_sport_by_id = async (id, data) => {
     const db = await db_connection();
     data.id_sport = id;
     try {
-        const [ results ] = await db.query('UPDATE jeux_olympiques.sport SET sport.Nom = :Nom, sport.Image = :Image where sport.id_sport = :id_sport',
+        const [ results ] = await db.query('UPDATE jeux_olympiques.sport SET sport.Nom = :Nom, sport.Image = :Image, sport.latitude = :latitude, sport.longitude = :longitude where sport.id_sport = :id_sport',
             data)
         return results;
     } catch (error) {

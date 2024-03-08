@@ -59,4 +59,14 @@ const delete_titre_by_id = async (id) => {
     }
 };
 
-export { get_all_participation, get_one_titre_by_id, insert_new_titre, update_titre_by_id, delete_titre_by_id };
+const get_all_athlete_medaille_for_each_epreuve = async () => {
+    const db = await db_connection();
+    try {
+        const [ results ] = await db.query('SELECT e.Nom, m.couleur, m.Image as image_medaille, a.*, p2.Nom as nom_pays FROM jeux_olympiques.participation p JOIN jeux_olympiques.epreuve e on e.id_epreuve = p.epreuve_id JOIN jeux_olympiques.medaille m on m.id_medaille = p.medaille_id JOIN jeux_olympiques.athlete a on a.id_athlete = e.athlete_id JOIN jeux_olympiques.pays p2 on p2.id_pays = a.pays_id')
+        return results;
+    } catch (error) {
+        return error;
+    }
+}
+
+export { get_all_participation, get_one_titre_by_id, insert_new_titre, update_titre_by_id, delete_titre_by_id, get_all_athlete_medaille_for_each_epreuve };

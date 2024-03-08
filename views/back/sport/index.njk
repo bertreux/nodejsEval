@@ -11,6 +11,8 @@
             <th>id_sport</th>
             <th>Nom</th>
             <th>Image</th>
+            <th>latitude</th>
+            <th>longitude</th>
             <th>actions</th>
         </tr>
         </thead>
@@ -20,6 +22,8 @@
                 <td>{{ sport.id_sport }}</td>
                 <td>{{ sport.Nom }}</td>
                 <td>{{ sport.Image }}</td>
+                <td>{{ sport.latitude }}</td>
+                <td>{{ sport.longitude }}</td>
                 <td>
                     <a href="/gestion/sport/{{ sport.id_sport }}/show" class="btn btn-info">Voire</a>
                     <a href="/gestion/sport/{{ sport.id_sport }}/edit" class="btn btn-warning">Modifier</a>

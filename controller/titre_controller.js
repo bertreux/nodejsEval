@@ -1,5 +1,5 @@
 import {
-    delete_titre_by_id,
+    delete_titre_by_id, get_all_athlete_medaille_for_each_epreuve,
     get_all_participation,
     get_one_titre_by_id,
     insert_new_titre,
@@ -9,8 +9,10 @@ import {get_all_athletes} from "../repositories/athlete_repository.js";
 import {get_all_epreuves} from "../repositories/epreuve_repository.js";
 import {get_all_medailles} from "../repositories/medaille_repository.js";
 
-const getAllTitres = (req, res) => {
+const getAllTitres = async (req, res) => {
+    const titres = await get_all_athlete_medaille_for_each_epreuve();
     return res.render('front/titre/liste_titres.njk', {
+        'titres': titres,
         'user': req.session.user
     });
 }
