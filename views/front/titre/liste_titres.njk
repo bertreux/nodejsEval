@@ -8,27 +8,27 @@
     <div class="row">
         <h1>Liste des titres</h1>
         <hr>
-        {% for titre in titres %}
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Epreuve</th>
-                        <th>Medaille</th>
-                        <th>Athlete</th>
-                        <th>Pays</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>{{ titre.Nom }}</td>
-                        <td>{{ titre.couleur }} : <img class="medaille" src="{{ titre.image_medaille }}" alt=""/></td>
-                        <td>{{ titre.nom }} {{ titre.prenom }}</td>
-                        <td>{{ titre.nom_pays }}</td>
-                    </tr>
-                </tbody>
-            </table>
-        {% else %}
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Epreuve</th>
+                <th>Medaille</th>
+                <th>Athlete</th>
+                <th>Pays</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for titre in titres %}
+                <tr>
+                    <td>{{ titre.Nom }}</td>
+                    <td>{{ titre.couleur }} : <img class="medaille" src="{{ titre.image_medaille }}" alt=""/></td>
+                    <td>{{ titre.nom }} {{ titre.prenom }}</td>
+                    <td>{{ titre.nom_pays }}</td>
+                </tr>
+            {% else %}
             <p>Aucun titre enregistré</p>
         {% endfor %}
+            </tbody>
+        </table>
     </div>
 {% endblock %}
