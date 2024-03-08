@@ -15,6 +15,16 @@ const sport_form_validator = joi.object({
         'string.min': 'L\'url de l\'image doit etre supérieur à 5 caractères',
         'any.required': 'L\'url de l\'image est requis',
     }),
+    latitude: joi.number().precision(10).required().messages({
+        'number.base': "La latitude doit être un nombre",
+        'number.precision': "La latitude doit avoir une précision de 10 chiffres",
+        'any.required': "La latitude est requise",
+    }),
+    longitude: joi.number().precision(10).required().messages({
+        'number.base': "La longitude doit être un nombre",
+        'number.precision': "La longitude doit avoir une précision de 10 chiffres",
+        'any.required': "La longitude est requise",
+    }),
 }).options({ convert: true, abortEarly: false, stripUnknown: true });
 
 export default sport_form_validator;
